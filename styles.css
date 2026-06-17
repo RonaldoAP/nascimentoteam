@@ -47,7 +47,7 @@ body {
   line-height: 1.6;
   font-size: 17px;
   letter-spacing: -0.01em;
-  overflow-x: hidden;
+  overflow-x: clip; /* 'clip' contém overflow horizontal sem virar scroll-container (preserva sticky) */
   -webkit-font-smoothing: antialiased;
 }
 
@@ -55,6 +55,9 @@ img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; }
 h1, h2, h3 { line-height: 1.12; letter-spacing: -0.025em; color: var(--text); font-weight: 700; }
+
+/* Equilíbrio de quebra de linha em todos os textos */
+h1, h2, h3, h4, p, li, blockquote, figcaption, summary, .eyebrow, .tl-tag { text-wrap: balance; }
 
 ::selection { background: var(--primary); color: #fff; }
 
@@ -249,13 +252,10 @@ h1, h2, h3 { line-height: 1.12; letter-spacing: -0.025em; color: var(--text); fo
 }
 .check-list li:hover { border-color: var(--border-strong); transform: translateY(-2px); }
 .check-list li::before {
-  content: ""; position: absolute; left: 20px; top: 21px; width: 24px; height: 24px; border-radius: 7px;
-  background: rgba(186, 99, 255, 0.14);
-}
-.check-list li::after {
-  content: ""; position: absolute; left: 27px; top: 26px; width: 9px; height: 5px;
-  border-left: 2px solid var(--primary-light); border-bottom: 2px solid var(--primary-light);
-  transform: rotate(-45deg);
+  content: ""; position: absolute; left: 18px; top: 18px; width: 26px; height: 26px; border-radius: 8px;
+  background: rgba(186, 99, 255, 0.14)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c875ff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 6'/%3E%3C/svg%3E")
+    center / 14px 14px no-repeat;
 }
 
 .honesty {
@@ -271,19 +271,24 @@ h1, h2, h3 { line-height: 1.12; letter-spacing: -0.025em; color: var(--text); fo
 /* ============================================================= */
 /* PILARES                                                       */
 /* ============================================================= */
-.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+/* Pilha sticky: cada card encosta no topo e o próximo sobrepõe o anterior.
+   Obs.: o pai precisa ser bloco (sticky não funciona em item flex). */
+.pillars { max-width: 820px; margin-inline: auto; }
 .pillar {
-  position: relative; padding: 34px 28px 30px;
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
-  overflow: hidden; transition: border-color 0.3s, transform 0.3s var(--ease);
+  position: sticky; padding: clamp(32px, 5vw, 52px);
+  min-height: 46vh; margin-bottom: 26px;
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  background: var(--surface); border: 1px solid var(--border-strong); border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 -14px 44px -22px rgba(0, 0, 0, 0.9), 0 28px 56px -30px rgba(0, 0, 0, 0.95);
 }
+.pillar:nth-child(1) { top: 96px; }
+.pillar:nth-child(2) { top: 118px; }
+.pillar:nth-child(3) { top: 140px; }
 .pillar::before {
   content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
   background: linear-gradient(90deg, var(--primary), transparent);
-  transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--ease);
 }
-.pillar:hover { transform: translateY(-4px); border-color: var(--border-strong); }
-.pillar:hover::before { transform: scaleX(1); }
 .pillar__num {
   display: inline-block; font-size: 0.95rem; font-weight: 700; color: var(--primary-light);
   letter-spacing: 0.1em; margin-bottom: 16px;
@@ -293,23 +298,29 @@ h1, h2, h3 { line-height: 1.12; letter-spacing: -0.025em; color: var(--text); fo
 .pillar p { color: var(--text-muted); font-size: 0.98rem; }
 
 /* ============================================================= */
-/* PASSOS                                                        */
+/* COMO FUNCIONA — timeline vertical (estilo ronaldox.com.br)     */
 /* ============================================================= */
-.steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; counter-reset: step; }
-.step {
-  display: flex; gap: 20px; padding: 28px 28px;
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
-  transition: border-color 0.3s, transform 0.3s var(--ease);
+.timeline-wrap { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+.timeline-intro { position: sticky; top: 100px; margin-bottom: 0; }
+.timeline { position: relative; display: flex; flex-direction: column; }
+.tl-step { position: relative; display: flex; gap: 22px; padding-bottom: 38px; }
+.tl-step:last-child { padding-bottom: 0; }
+/* linha vertical conectando os badges */
+.tl-step::before {
+  content: ""; position: absolute; left: 23px; top: 28px; bottom: -10px; width: 2px;
+  background: linear-gradient(var(--primary), rgba(186, 99, 255, 0.12));
 }
-.step:hover { transform: translateY(-3px); border-color: var(--border-strong); }
-.step__num {
-  flex-shrink: 0; width: 50px; height: 50px; border-radius: 14px;
-  display: grid; place-items: center; font-size: 1.3rem; font-weight: 700; color: #fff;
-  background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
-  box-shadow: 0 8px 22px -8px rgba(186, 99, 255, 0.7);
+.tl-step:last-child::before { display: none; }
+.tl-badge {
+  position: relative; z-index: 1; flex-shrink: 0; width: 48px; height: 48px; border-radius: 15px;
+  display: grid; place-items: center; color: #fff;
+  background: linear-gradient(150deg, var(--primary-light), var(--primary-dark));
+  box-shadow: 0 0 0 6px rgba(186, 99, 255, 0.08), 0 12px 28px -8px rgba(186, 99, 255, 0.75);
 }
-.step__body h3 { font-size: 1.22rem; margin-bottom: 8px; }
-.step__body p { color: var(--text-muted); font-size: 0.97rem; }
+.tl-body { padding-top: 3px; }
+.tl-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--primary-light); margin-bottom: 7px; }
+.tl-body h3 { font-size: 1.3rem; margin-bottom: 8px; }
+.tl-body p { color: var(--text-muted); font-size: 0.98rem; }
 
 /* ============================================================= */
 /* FEATURES (o que está incluso)                                 */
@@ -535,14 +546,34 @@ h1, h2, h3 { line-height: 1.12; letter-spacing: -0.025em; color: var(--text); fo
   .hero__badge { left: auto; right: 14px; }
   .about { grid-template-columns: 1fr; }
   .about__media { max-width: 360px; margin-inline: auto; }
-  .pillars, .features { grid-template-columns: 1fr 1fr; }
+  .features { grid-template-columns: 1fr 1fr; }
+  .timeline-wrap { grid-template-columns: 1fr; }
+  .timeline-intro { position: static; }
   .carousel__track { grid-auto-columns: calc(50% - 10px); }
   .plans, .plans--2 { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
+  .plan--featured { order: -1; } /* "Mais vantajoso" sempre em primeiro quando empilhado */
 }
 
 @media (max-width: 767px) {
-  .check-list, .steps { grid-template-columns: 1fr; }
-  .pillars, .features { grid-template-columns: 1fr; }
+  /* Header mobile: só o botão verde (WhatsApp), sem menu e sem ponto piscando */
+  .scarcity-bar__dot { display: none; }
+  .nav-toggle { display: none; }
+  .site-header__inner { gap: 10px; }
+  .brand__name { font-size: 1rem; white-space: nowrap; }
+  .header-cta {
+    display: inline-flex; margin-left: auto;
+    padding: 9px 15px; font-size: 0.82rem;
+    background: linear-gradient(135deg, #25d366, #128c4b);
+    box-shadow: 0 8px 22px -10px rgba(37, 211, 102, 0.7);
+  }
+  /* Primeira dobra: apenas o CTA de contato, em verde */
+  .hero__actions .btn--ghost { display: none; }
+  .hero__actions .btn--primary {
+    background: linear-gradient(135deg, #25d366, #128c4b);
+    box-shadow: 0 10px 30px -10px rgba(37, 211, 102, 0.6);
+  }
+  .check-list { grid-template-columns: 1fr; }
+  .features { grid-template-columns: 1fr; }
   .carousel__track { grid-auto-columns: 88%; }
   .carousel__nav { display: none; }
   .plan-switch { width: 100%; }
