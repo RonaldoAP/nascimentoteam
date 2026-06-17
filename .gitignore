@@ -1,0 +1,9 @@
+# SO / editores
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# Dependências (não usadas no site estático)
+node_modules/

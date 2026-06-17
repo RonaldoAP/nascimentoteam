@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nascimento Team — Consultoria Online de Treino e Nutrição</title>
+  <meta name="description" content="Consultoria online de treino e nutrição com acompanhamento individual. Sem dietas impossíveis, sem promessas mirabolantes. Método, ajuste contínuo e resultado que se mantém." />
+  <meta name="theme-color" content="#0e0e0e" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nascimento Team — Consultoria Online de Treino e Nutrição" />
+  <meta property="og:description" content="Construa um físico mais forte, definido e que performa melhor, com dieta e treino ajustados à sua rotina." />
+  <meta property="og:locale" content="pt_BR" />
+
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- Tipografia: DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================= -->
+  <!-- 00. HEADER + BARRA DE ESCASSEZ                                 -->
+  <!-- ============================================================= -->
+  <div class="scarcity-bar" id="scarcityBar">
+    <div class="container scarcity-bar__inner">
+      <span class="scarcity-bar__dot" aria-hidden="true"></span>
+      <p data-scarcity>Apenas <strong>5 vagas</strong> disponíveis em <strong>junho</strong> — acompanhamento individual e limitado.</p>
+    </div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container site-header__inner">
+      <a href="#topo" class="brand" aria-label="Nascimento Team — início">
+        <span class="brand__mark" aria-hidden="true">NT</span>
+        <span class="brand__name">Nascimento<span>Team</span></span>
+      </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Navegação principal">
+        <a href="#para-quem">Para quem é</a>
+        <a href="#metodo">Como trabalho</a>
+        <a href="#processo">Como funciona</a>
+        <a href="#planos">Planos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a href="#contato" class="btn btn--primary btn--sm header-cta" data-wa>Entrar em contato</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primaryNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="topo">
+
+    <!-- =========================================================== -->
+    <!-- 1. HERO                                                      -->
+    <!-- =========================================================== -->
+    <section class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__content reveal">
+          <span class="eyebrow">Consultoria online de treino e nutrição</span>
+          <h1 class="hero__title">
+            Construa um físico mais <span class="text-grad">forte, definido</span> e que performa melhor, com dieta e treino ajustados à sua rotina.
+          </h1>
+          <p class="hero__subtitle">
+            Acompanhamento individual de verdade. Sem dietas impossíveis, sem promessas
+            mirabolantes. Somente trabalho consistente ajustado à sua rotina.
+          </p>
+          <div class="hero__actions">
+            <a href="#contato" class="btn btn--primary btn--lg" data-wa>Entrar em contato</a>
+            <a href="#processo" class="btn btn--ghost btn--lg">Ver como funciona</a>
+          </div>
+          <p class="hero__microcopy">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8Z"/></svg>
+            Vagas limitadas para manter a qualidade do acompanhamento.
+          </p>
+
+          <ul class="hero__trust">
+            <li><strong>Online</strong><span>Brasil e exterior</span></li>
+            <li><strong>1 a 1</strong><span>Sem terceiros</span></li>
+            <li><strong>Desde 2018</strong><span>No estudo da área</span></li>
+          </ul>
+        </div>
+
+        <div class="hero__media reveal">
+          <!-- SUBSTITUA o bloco abaixo por: <img src="./assets/henrique.jpg" alt="Henrique Silvério do Nascimento" /> -->
+          <figure class="photo-placeholder photo-placeholder--hero">
+            <svg viewBox="0 0 24 24" width="64" height="64" aria-hidden="true"><path fill="currentColor" d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-3.34 0-10 1.67-10 5v3h20v-3c0-3.33-6.66-5-10-5Z"/></svg>
+            <figcaption>Foto do expert<br /><small>substitua por ./assets/henrique.jpg</small></figcaption>
+          </figure>
+          <div class="hero__badge">
+            <span class="hero__badge-num">100%</span>
+            <span class="hero__badge-label">individual e<br />feito por mim</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================== -->
+    <!-- 2. PARA QUEM É                                               -->
+    <!-- =========================================================== -->
+    <section class="section" id="para-quem">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="eyebrow">Para quem é</span>
+          <h2>Este acompanhamento faz sentido se você:</h2>
+        </header>
+
+        <ul class="check-list reveal">
+          <li>Já tentou dietas e treinos avulsos e percebeu que falta estrutura.</li>
+          <li>Quer emagrecer ou ganhar massa muscular, mas sem viver em função disso.</li>
+          <li>Treina há um tempo e sente que estagnou.</li>
+          <li>Está começando agora e quer começar do jeito certo, sem perder tempo com achismo.</li>
+          <li>Cansou de planos genéricos copiados da internet.</li>
+        </ul>
+
+        <div class="honesty reveal">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2 1 21h22L12 2Zm1 14h-2v2h2v-2Zm0-6h-2v4h2v-4Z"/></svg>
+          <p>
+            <strong>Honestidade antes de tudo:</strong> se você procura um atalho ou uma transformação
+            em 30 dias, talvez não seja aqui. O que entregamos é método, ajuste contínuo e resultado que se mantém.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================== -->
+    <!-- 3. COMO EU TRABALHO (3 PILARES)                              -->
+    <!-- =========================================================== -->
+    <section class="section section--alt" id="metodo">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="eyebrow">Como eu trabalho</span>
+          <h2>O que muda quando o acompanhamento é feito com critério</h2>
+        </header>
+
+        <div class="pillars">
+          <article class="pillar reveal">
+            <span class="pillar__num">01</span>
+            <h3>Individualização real</h3>
+            <p>
+              Plano construído a partir da sua rotina, histórico, preferências alimentares,
+              horário de treino e nível atual. Nada de cardápio padrão ou ficha "uma vez por mês".
+              O ajuste é contínuo, conforme seu corpo e sua vida respondem.
+            </p>
+          </article>
+
+          <article class="pillar reveal">
+            <span class="pillar__num">02</span>
+            <h3>Sem radicalismo</h3>
+            <p>
+              Você não vai cortar grupos alimentares inteiros, treinar todo dia ou seguir
+              restrições que ninguém mantém por mais de duas semanas. A estratégia é sustentável
+              porque é a única que funciona a longo prazo.
+            </p>
+          </article>
+
+          <article class="pillar reveal">
+            <span class="pillar__num">03</span>
+            <h3>Decisões baseadas em conhecimento</h3>
+            <p>
+              Cada escolha — calorias, divisão de treino, volume, frequência, suplementação —
+              tem uma razão técnica. Você entende o porquê de cada coisa e sai do processo sabendo
+              se conduzir. Tudo feito exclusivamente por mim, e não por terceiros.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================== -->
+    <!-- 4. COMO FUNCIONA (4 PASSOS)                                  -->
+    <!-- =========================================================== -->
+    <section class="section" id="processo">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="eyebrow">Como funciona</span>
+          <h2>Como funciona o acompanhamento</h2>
+        </header>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step__num">1</span>
+            <div class="step__body">
+              <h3>Conversa inicial</h3>
+              <p>Você manda mensagem no WhatsApp. Entendo o seu momento, seu objetivo e respondo suas dúvidas sem compromisso.</p>
+            </div>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">2</span>
+            <div class="step__body">
+              <h3>Anamnese detalhada</h3>
+              <p>Formulário completo sobre rotina, histórico, restrições, gostos alimentares, equipamentos disponíveis e disponibilidade de treino.</p>
+            </div>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">3</span>
+            <div class="step__body">
+              <h3>Montagem do plano</h3>
+              <p>Treino e dieta estruturados especificamente para o seu caso. Entregues em até <strong>72h úteis</strong>.</p>
+            </div>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">4</span>
+            <div class="step__body">
+              <h3>Acompanhamento contínuo</h3>
+              <p>Check-ins periódicos, ajustes conforme sua evolução e canal direto para dúvidas durante todo o processo.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =========================================================== -->
+    <!-- 5. O QUE ESTÁ INCLUSO                                        -->
+    <!-- =========================================================== -->
+    <section class="section section--alt" id="incluso">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="eyebrow">O que está incluso</span>
+          <h2>O que você recebe</h2>
+        </header>
+
+        <div class="features">
+          <article class="feature reveal">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M11 9h2V7h2v2h2v2h-2v2h-2v-2h-2V9Zm-2 9a2 2 0 1 0 .001 4.001A2 2 0 0 0 9 18Zm8 0a2 2 0 1 0 .001 4.001A2 2 0 0 0 17 18ZM7.17 14h9.32a2 2 0 0 0 1.75-1.03l3.24-5.88L19.74 6l-3.25 5.9H7.53L4.27 3H1v2h2l3.6 7.59-1.35 2.44A2 2 0 0 0 7 18h12v-2H7.42a.25.25 0 0 1-.25-.34Z"/></svg></span>
+            <h3>Plano alimentar ajustado à sua rotina</h3>
+            <p>Com opções de substituição para os dias que saem do roteiro.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M20.57 14.86 22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43Z"/></svg></span>
+            <h3>Treino estruturado</h3>
+            <p>Para academia ou para a estrutura que você tem acesso, do equipamento ao tempo disponível.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M6 3h12a1 1 0 0 1 1 1v2.5a3.5 3.5 0 0 1-2 3.16V12a5 5 0 0 1-4 4.9V19h3v2H9v-2h3v-2.1A5 5 0 0 1 8 12V9.66A3.5 3.5 0 0 1 6 6.5V4a1 1 0 0 1 0-1Z"/></svg></span>
+            <h3>Orientação de suplementação</h3>
+            <p>Quando e se fizer sentido para o seu caso — nunca por modismo.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M3 3h18v2H3V3Zm0 4h12v2H3V7Zm0 4h18v2H3v-2Zm0 4h12v2H3v-2Zm0 4h18v2H3v-2Z"/></svg></span>
+            <h3>Check-ins e ajustes do plano</h3>
+            <p>Acompanhamento periódico para corrigir a rota conforme você evolui.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 9H6V9h12v2Zm0-3H6V6h12v2Z"/></svg></span>
+            <h3>Canal direto de comunicação</h3>
+            <p>Um caminho aberto para tirar dúvidas durante o processo.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M4 6H2v14a2 2 0 0 0 2 2h14v-2H4V6Zm16-4H8a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2Z"/></svg></span>
+            <h3>Material de apoio</h3>
+            <p>Execução dos exercícios e organização alimentar para você ganhar autonomia.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================== -->
+    <!-- 6. PROVA SOCIAL (DEPOIMENTOS)                                -->
+    <!-- =========================================================== -->
+    <section class="section" id="depoimentos">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="eyebrow">Prova social</span>
+          <h2>Quem está fazendo o processo</h2>
+          <p class="section-head__note">
+            <!-- ESPAÇO PARA 3–6 DEPOIMENTOS REAIS. Recomendado: fotos de antes/depois e prints de mensagens. -->
+            Espaço reservado para depoimentos reais de alunos — troque os textos e fotos abaixo.
+          </p>
+        </header>
+
+        <div class="carousel" data-carousel>
+          <button class="carousel__nav carousel__nav--prev" data-carousel-prev aria-label="Anterior">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+
+          <div class="carousel__track" data-carousel-track>
+            <!-- DEPOIMENTO (modelo) — duplique este article e troque o conteúdo -->
+            <article class="testimonial">
+              <div class="testimonial__stars" aria-label="5 estrelas">★★★★★</div>
+              <blockquote>"Pela primeira vez segui um plano que cabia na minha rotina. Em poucos meses meu shape mudou e, principalmente, eu entendi o porquê de cada coisa."</blockquote>
+              <div class="testimonial__author">
+                <span class="avatar" aria-hidden="true">A</span>
+                <div>
+                  <strong>Nome do Aluno</strong>
+                  <span>Objetivo: hipertrofia</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial">
+              <div class="testimonial__stars" aria-label="5 estrelas">★★★★★</div>
+              <blockquote>"Já tinha tentado várias dietas avulsas. A diferença aqui é o acompanhamento de verdade — ajuste toda semana e alguém pra responder minhas dúvidas."</blockquote>
+              <div class="testimonial__author">
+                <span class="avatar" aria-hidden="true">B</span>
+                <div>
+                  <strong>Nome do Aluno</strong>
+                  <span>Objetivo: emagrecimento</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial">
+              <div class="testimonial__stars" aria-label="5 estrelas">★★★★★</div>
+              <blockquote>"Estava estagnado há mais de um ano. Com a divisão e o volume certos voltei a evoluir e sem viver dentro da academia."</blockquote>
+              <div class="testimonial__author">
+                <span class="avatar" aria-hidden="true">C</span>
+                <div>
+                  <strong>Nome do Aluno</strong>
+                  <span>Objetivo: performance</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial">
+              <div class="testimonial__stars" aria-label="5 estrelas">★★★★★</div>
+              <blockquote>"Comecei do zero e nunca me senti perdido. Tudo explicado, do treino à alimentação, no meu ritmo."</blockquote>
+              <div class="testimonial__author">
+                <span class="avatar" aria-hidden="true">D</span>
+                <div>
+                  <strong>Nome do Aluno</strong>
+                  <span>Objetivo: iniciante</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <button class="carousel__nav carousel__nav--next" data-carousel-next aria-label="Próximo">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M8.59 16.59 10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+          </button>
+        </div>
+        <div class="carousel__dots" data-carousel-dots aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================== -->
+    <!-- 7. PLANOS                                                    -->
+    <!-- =========================================================== -->
+    <section class="section section--alt" id="planos">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="eyebrow">Planos</span>
+          <h2>Escolha qual caminho faz sentido pra você</h2>
+          <p class="section-head__note">Todos os planos incluem plano de treino e nutrição individuais, check-ins e canal direto. Sem fidelidade.</p>
+        </header>
+
+        <div class="plans">
+          <article class="plan reveal">
+            <h3 class="plan__name">Mensal</h3>
+            <p class="plan__tagline">Para começar e sentir o método de perto.</p>
+            <div class="plan__price"><span class="plan__currency">R$</span><span class="plan__value">—</span><span class="plan__period">/mês</span></div>
+            <ul class="plan__list">
+              <li>Plano de treino e nutrição individual</li>
+              <li>Ajustes ao longo do mês</li>
+              <li>Check-in mensal</li>
+              <li>Canal direto para dúvidas</li>
+            </ul>
+            <a href="#contato" class="btn btn--ghost btn--block" data-wa>Falar sobre o plano</a>
+          </article>
+
+          <article class="plan plan--featured reveal">
+            <span class="plan__badge">Mais escolhido</span>
+            <h3 class="plan__name">Trimestral</h3>
+            <p class="plan__tagline">Tempo ideal para ver mudança real de composição.</p>
+            <div class="plan__price"><span class="plan__currency">R$</span><span class="plan__value">—</span><span class="plan__period">/trimestre</span></div>
+            <ul class="plan__list">
+              <li>Tudo do plano mensal</li>
+              <li>Check-ins quinzenais</li>
+              <li>Reajuste contínuo do plano</li>
+              <li>Prioridade no atendimento</li>
+            </ul>
+            <a href="#contato" class="btn btn--primary btn--block" data-wa>Falar sobre o plano</a>
+          </article>
+
+          <article class="plan reveal">
+            <h3 class="plan__name">Semestral</h3>
+            <p class="plan__tagline">Para consolidar resultado e autonomia de verdade.</p>
+            <div class="plan__price"><span class="plan__currency">R$</span><span class="plan__value">—</span><span class="plan__period">/semestre</span></div>
+            <ul class="plan__list">
+              <li>Tudo do plano trimestral</li>
+              <li>Acompanhamento de longo prazo</li>
+              <li>Melhor custo-benefício</li>
+              <li>Suporte próximo e constante</li>
+            </ul>
+            <a href="#contato" class="btn btn--ghost btn--block" data-wa>Falar sobre o plano</a>
+          </article>
+        </div>
+        <p class="plans__note">Valores apresentados na conversa inicial, de acordo com o seu objetivo. <a href="#contato" data-wa>Fale comigo no WhatsApp</a> para os valores atualizados.</p>
+      </div>
+    </section>
+
+    <!-- =========================================================== -->
+    <!-- 8. SOBRE                                                     -->
+    <!-- =========================================================== -->
+    <section class="section" id="sobre">
+      <div class="container about">
+        <div class="about__media reveal">
+          <!-- SUBSTITUA por: <img src="./assets/henrique-sobre.jpg" alt="Henrique Silvério do Nascimento" /> -->
+          <figure class="photo-placeholder photo-placeholder--about">
+            <svg viewBox="0 0 24 24" width="56" height="56" aria-hidden="true"><path fill="currentColor" d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-3.34 0-10 1.67-10 5v3h20v-3c0-3.33-6.66-5-10-5Z"/></svg>
+            <figcaption>Foto do Henrique<br /><small>./assets/henrique-sobre.jpg</small></figcaption>
+          </figure>
+        </div>
+
+        <div class="about__content reveal">
+          <span class="eyebrow">Sobre</span>
+          <h2>Quem conduz o acompanhamento</h2>
+          <p>
+            A <strong>Nascimento Team</strong> é conduzida por <strong>Henrique Silvério do Nascimento</strong>,
+            formado pela UNICAMP e profissional dedicado ao estudo da nutrição esportiva, treinamento físico,
+            hipertrofia, emagrecimento e performance.
+          </p>
+          <p>
+            Desde 2018, Henrique se aprofunda na relação entre alimentação, treino e comportamento, sempre com
+            uma proposta clara: transformar ciência em estratégia prática para pessoas reais. Ao longo da sua
+            atuação com consultoria online, atende homens e mulheres em diferentes fases — desde quem está
+            começando a organizar a rotina até quem já treina há anos e busca evoluir com mais direção.
+          </p>
+          <p>
+            A proposta é simples: tratar cada pessoa como um caso individual. Nada de dieta pronta, treino
+            genérico ou solução milagrosa. O acompanhamento é construído a partir da rotina, das preferências,
+            das dificuldades, do histórico e dos objetivos de cada aluno.
+          </p>
+          <p>
+            Mais do que entregar um plano, o objetivo é ensinar o aluno a entender o próprio processo, tomar
+            melhores decisões e construir resultados que possam ser mantidos no longo prazo.
+          </p>
+          <p class="about__highlight">
+            Porque resultado de verdade não vem de pressa, radicalismo ou motivação passageira. Vem de
+            consistência, direcionamento e ajuste bem feito.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================== -->
+    <!-- 9. FAQ                                                       -->
+    <!-- =========================================================== -->
+    <section class="section section--alt" id="faq">
+      <div class="container container--narrow">
+        <header class="section-head reveal">
+          <span class="eyebrow">Dúvidas frequentes</span>
+          <h2>FAQ</h2>
+        </header>
+
+        <div class="faq reveal">
+          <details class="faq__item">
+            <summary>Em quanto tempo vejo resultado?</summary>
+            <div class="faq__answer"><p>Depende do seu ponto de partida, do objetivo e da consistência. Mudanças de composição corporal acontecem ao longo de meses, não semanas. O que prometemos é que, executando o planejamento proposto de forma adequada, a cada check-in você verá progresso real — em medidas, desempenho ou hábitos.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>Como funciona, na prática, esse acompanhamento?</summary>
+            <div class="faq__answer"><p>Você recebe planejamento individual, faz check-ins periódicos e recebe feedbacks e ajustes conforme o plano contratado.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>E se eu morar fora do Brasil ou em outra cidade?</summary>
+            <div class="faq__answer"><p>O atendimento é 100% online. Funciona em qualquer lugar.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>Posso fazer se for iniciante?</summary>
+            <div class="faq__answer"><p>Sim. Boa parte dos alunos começa do zero. A estrutura é montada a partir do seu nível atual.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>Tem dieta restritiva ou alimentos proibidos?</summary>
+            <div class="faq__answer"><p>Não. A estratégia é construída com os alimentos que você gosta e consegue manter na rotina.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>E se minha rotina mudar durante o acompanhamento?</summary>
+            <div class="faq__answer"><p>Sem problemas. Os ajustes fazem parte do processo.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>Existe fidelidade ou multa?</summary>
+            <div class="faq__answer"><p>Não. Cada plano tem duração definida (mensal, trimestral ou semestral). Em caso de cancelamento, o aviso deve ser feito com antecedência mínima de 15 dias. Após o aviso, o acompanhamento é encerrado e o valor proporcional aos dias restantes até o vencimento do pacote será devolvido. Em caso de cancelamento ainda no primeiro mês de acompanhamento, será devolvido apenas o valor referente aos meses subsequentes, e não aos dias já utilizados do primeiro mês.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================== -->
+    <!-- 10. CTA FINAL                                                -->
+    <!-- =========================================================== -->
+    <section class="final-cta" id="contato">
+      <div class="final-cta__glow" aria-hidden="true"></div>
+      <div class="container final-cta__inner reveal">
+        <h2>Pronto para começar com método?</h2>
+        <p>
+          Mande uma mensagem. A primeira conversa é sem compromisso: vamos entender o seu momento e
+          você decide se faz sentido seguir.
+        </p>
+        <a href="#" class="btn btn--primary btn--lg btn--whatsapp" data-wa>
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.46-.15-.66.15-.2.3-.76.95-.93 1.15-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.74-.71 1.99-1.4.24-.69.24-1.28.17-1.4-.07-.12-.27-.2-.57-.35ZM12.04 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 0 1-1.44-5A9.43 9.43 0 0 1 18.7 5.3a9.37 9.37 0 0 1 2.76 6.67c0 5.2-4.23 9.43-9.42 9.43Zm8.02-17.45A11.36 11.36 0 0 0 12.04.5C5.8.5.73 5.57.73 11.8c0 2 .52 3.95 1.52 5.67L.63 23.5l6.18-1.62a11.3 11.3 0 0 0 5.23 1.33h.01c6.24 0 11.31-5.07 11.31-11.3a11.3 11.3 0 0 0-3.3-7.86Z"/></svg>
+          Falar no WhatsApp
+        </a>
+        <p class="final-cta__micro">Vagas limitadas para manter a qualidade do acompanhamento.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================= -->
+  <!-- RODAPÉ                                                         -->
+  <!-- ============================================================= -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="brand">
+        <span class="brand__mark" aria-hidden="true">NT</span>
+        <span class="brand__name">Nascimento<span>Team</span></span>
+      </div>
+      <p class="site-footer__tag">Consultoria online de treino e nutrição. Método, individualização e ajuste contínuo.</p>
+      <nav class="site-footer__nav" aria-label="Rodapé">
+        <a href="#para-quem">Para quem é</a>
+        <a href="#processo">Como funciona</a>
+        <a href="#planos">Planos</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contato" data-wa>Contato</a>
+      </nav>
+      <p class="site-footer__copy">© <span data-year>2026</span> Nascimento Team · Henrique Silvério do Nascimento. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Botão flutuante de WhatsApp -->
+  <a href="#" class="wa-float" data-wa aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.46-.15-.66.15-.2.3-.76.95-.93 1.15-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.74-.71 1.99-1.4.24-.69.24-1.28.17-1.4-.07-.12-.27-.2-.57-.35ZM12.04 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 0 1-1.44-5A9.43 9.43 0 0 1 18.7 5.3a9.37 9.37 0 0 1 2.76 6.67c0 5.2-4.23 9.43-9.42 9.43Z"/></svg>
+  </a>
+
+  <script src="./script.js"></script>
+</body>
+</html>
