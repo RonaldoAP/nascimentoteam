@@ -12,7 +12,7 @@ hospedagem e em subdiretório — todos os caminhos são relativos, então roda 
 index.html        → conteúdo e seções da página
 styles.css        → estilos (paleta + DM Sans)
 script.js         → configuração (WhatsApp/vagas) e interações
-assets/           → imagens e favicon
+img/           → imagens e favicon
 ```
 
 ## ✍️ O que personalizar antes de publicar
@@ -25,8 +25,8 @@ Tudo o que é placeholder está centralizado e comentado.
    - `vagas` / `mesReferencia`: texto da barra de escassez.
 
 2. **Fotos** — substituir os blocos `.photo-placeholder` por `<img>`:
-   - Hero: adicione `assets/henrique.jpg` e troque o `<figure class="photo-placeholder photo-placeholder--hero">` por `<img src="./assets/henrique.jpg" alt="Henrique Silvério do Nascimento" />`.
-   - Sobre: idem com `assets/henrique-sobre.jpg`.
+   - Hero: adicione `img/henrique.jpg` e troque o `<figure class="photo-placeholder photo-placeholder--hero">` por `<img src="./img/henrique.jpg" alt="Henrique Silvério do Nascimento" />`.
+   - Sobre: idem com `img/henrique-sobre.jpg`.
 
 3. **Depoimentos** — seção `#depoimentos` no `index.html`: troque nome, texto e
    objetivo de cada `<article class="testimonial">` (duplique para ter mais).

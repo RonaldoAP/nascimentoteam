@@ -55,7 +55,7 @@ dos arrays existentes (não duplique as chaves).
 
 ### Por que o `redirect`?
 Ele garante a barra final (`/nascimento-team/`). Sem ela, os caminhos relativos
-(`./styles.css`, `./script.js`, `./assets/...`) apontariam para a raiz do domínio.
+(`./styles.css`, `./script.js`, `./img/...`) apontariam para a raiz do domínio.
 Com a barra, eles resolvem para `/nascimento-team/...` e o proxy entrega os arquivos certos.
 
 Faça commit, deixe a Vercel publicar o projeto do domínio e pronto.
