@@ -95,7 +95,8 @@ h1, h2, h3, h4, p, li, blockquote, figcaption, summary, .eyebrow, .tl-tag { text
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   padding: var(--pad-y) var(--pad-x);
   border-radius: 999px;
-  font: inherit; font-weight: 600; font-size: 0.98rem;
+  font: inherit; font-weight: 700; font-size: 0.95rem;
+  text-transform: uppercase; letter-spacing: 0.05em;
   cursor: pointer; border: 1px solid transparent;
   transition: transform 0.2s var(--ease), box-shadow 0.25s var(--ease), background 0.2s, border-color 0.2s, color 0.2s;
   white-space: nowrap;
@@ -105,11 +106,23 @@ h1, h2, h3, h4, p, li, blockquote, figcaption, summary, .eyebrow, .tl-tag { text
 .btn--block { width: 100%; }
 
 .btn--primary {
-  background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+  background: linear-gradient(100deg, #6d28a8 0%, #9b3fd4 50%, #cd9cf5 100%);
   color: #fff;
-  box-shadow: 0 10px 30px -10px rgba(186, 99, 255, 0.6);
+  border-color: rgba(221, 194, 247, 0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 8px 24px -8px rgba(155, 63, 212, 0.6),
+    0 0 32px -2px rgba(186, 99, 255, 0.5),
+    0 0 64px 4px rgba(186, 99, 255, 0.25);
 }
-.btn--primary:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -12px rgba(186, 99, 255, 0.75); }
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 12px 30px -8px rgba(155, 63, 212, 0.78),
+    0 0 42px 0 rgba(186, 99, 255, 0.62),
+    0 0 84px 8px rgba(186, 99, 255, 0.32);
+}
 
 .btn--ghost {
   background: rgba(255, 255, 255, 0.03);
@@ -118,8 +131,23 @@ h1, h2, h3, h4, p, li, blockquote, figcaption, summary, .eyebrow, .tl-tag { text
 }
 .btn--ghost:hover { border-color: var(--primary); background: rgba(186, 99, 255, 0.08); transform: translateY(-2px); }
 
-.btn--whatsapp { background: linear-gradient(135deg, #25d366, #128c4b); box-shadow: 0 10px 30px -10px rgba(37, 211, 102, 0.6); }
-.btn--whatsapp:hover { box-shadow: 0 18px 40px -12px rgba(37, 211, 102, 0.7); }
+.btn--whatsapp {
+  background: linear-gradient(100deg, #1f8f5f 0%, #2fb574 50%, #b6e8cd 100%);
+  border-color: rgba(190, 240, 210, 0.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 8px 24px -8px rgba(37, 180, 110, 0.6),
+    0 0 32px -2px rgba(45, 210, 120, 0.5),
+    0 0 64px 4px rgba(45, 210, 120, 0.25);
+}
+.btn--whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 12px 30px -8px rgba(37, 180, 110, 0.78),
+    0 0 42px 0 rgba(45, 210, 120, 0.62),
+    0 0 84px 8px rgba(45, 210, 120, 0.32);
+}
 
 /* ============================================================= */
 /* SCARCITY BAR                                                   */
@@ -173,7 +201,7 @@ h1, h2, h3, h4, p, li, blockquote, figcaption, summary, .eyebrow, .tl-tag { text
   transition: color 0.2s, background 0.2s;
 }
 .nav a:hover { color: var(--text); background: rgba(255, 255, 255, 0.05); }
-.header-cta { margin-left: 6px; }
+.header-cta { margin-left: 6px; text-transform: none; letter-spacing: normal; }
 
 .nav-toggle {
   display: none; margin-left: auto; width: 44px; height: 44px;
@@ -508,11 +536,11 @@ h1, h2, h3, h4, p, li, blockquote, figcaption, summary, .eyebrow, .tl-tag { text
 .wa-float {
   position: fixed; right: 22px; bottom: 22px; z-index: 70;
   width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; color: #fff;
-  background: linear-gradient(135deg, #25d366, #128c4b);
-  box-shadow: 0 12px 30px -8px rgba(37, 211, 102, 0.7);
+  background: linear-gradient(135deg, #2fb574, #128c4b);
+  box-shadow: 0 10px 26px -8px rgba(37, 180, 110, 0.7), 0 0 26px -2px rgba(45, 210, 120, 0.5);
   transition: transform 0.25s var(--ease), box-shadow 0.25s;
 }
-.wa-float:hover { transform: scale(1.08); box-shadow: 0 16px 38px -8px rgba(37, 211, 102, 0.85); }
+.wa-float:hover { transform: scale(1.08); box-shadow: 0 14px 34px -8px rgba(37, 180, 110, 0.85), 0 0 36px 0 rgba(45, 210, 120, 0.6); }
 
 /* ============================================================= */
 /* SCROLL REVEAL                                                  */
@@ -527,7 +555,12 @@ h1, h2, h3, h4, p, li, blockquote, figcaption, summary, .eyebrow, .tl-tag { text
 /*   Tablet   (768-1023)   ->  800px                             */
 /*   Mobile   (<768px)     ->  400px                             */
 /* ============================================================= */
-@media (max-width: 1439px) { :root { --maxw: 900px; } }
+@media (max-width: 1439px) {
+  :root { --maxw: 900px; }
+  /* planos empilham (3 colunas só no desktop largo) */
+  .plans, .plans--2 { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
+  .plan--featured { order: -1; } /* "Mais vantajoso" sempre em primeiro quando empilhado */
+}
 @media (max-width: 1023px) { :root { --maxw: 800px; } }
 @media (max-width: 767px)  { :root { --maxw: 400px; } }
 
@@ -550,8 +583,6 @@ h1, h2, h3, h4, p, li, blockquote, figcaption, summary, .eyebrow, .tl-tag { text
   .timeline-wrap { grid-template-columns: 1fr; }
   .timeline-intro { position: static; }
   .carousel__track { grid-auto-columns: calc(50% - 10px); }
-  .plans, .plans--2 { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
-  .plan--featured { order: -1; } /* "Mais vantajoso" sempre em primeiro quando empilhado */
 }
 
 @media (max-width: 767px) {
@@ -562,15 +593,20 @@ h1, h2, h3, h4, p, li, blockquote, figcaption, summary, .eyebrow, .tl-tag { text
   .brand__name { font-size: 1rem; white-space: nowrap; }
   .header-cta {
     display: inline-flex; margin-left: auto;
-    padding: 9px 15px; font-size: 0.82rem;
-    background: linear-gradient(135deg, #25d366, #128c4b);
-    box-shadow: 0 8px 22px -10px rgba(37, 211, 102, 0.7);
+    padding: 8px 13px; font-size: 0.8rem;
+    background: linear-gradient(100deg, #1f8f5f 0%, #2fb574 55%, #8fdcb4 100%);
+    border-color: rgba(190, 240, 210, 0.6);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 6px 18px -8px rgba(37, 180, 110, 0.6), 0 0 26px -2px rgba(45, 210, 120, 0.45);
   }
   /* Primeira dobra: apenas o CTA de contato, em verde */
   .hero__actions .btn--ghost { display: none; }
   .hero__actions .btn--primary {
-    background: linear-gradient(135deg, #25d366, #128c4b);
-    box-shadow: 0 10px 30px -10px rgba(37, 211, 102, 0.6);
+    background: linear-gradient(100deg, #1f8f5f 0%, #2fb574 50%, #b6e8cd 100%);
+    border-color: rgba(190, 240, 210, 0.6);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.35),
+      0 8px 24px -8px rgba(37, 180, 110, 0.6),
+      0 0 32px -2px rgba(45, 210, 120, 0.5);
   }
   .check-list { grid-template-columns: 1fr; }
   .features { grid-template-columns: 1fr; }
