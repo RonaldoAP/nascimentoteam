@@ -43,13 +43,12 @@ Tudo o que é placeholder está centralizado e comentado.
 
 ## 🚀 Publicar em ronaldox.com.br/nascimento-team
 
-Por ser estático, basta servir os arquivos na pasta `nascimento-team/` do site.
-O método depende de como o `ronaldox.com.br` está hospedado — ver detalhes na
-conversa. Opções comuns:
+O `ronaldox.com.br` está na **Vercel**. A landing fica neste repositório como um
+projeto Vercel próprio (isolado dos seus arquivos) e o domínio apenas redireciona
+`/nascimento-team` para ele via um pequeno *rewrite*.
 
-- **Hospedagem própria / cPanel**: enviar os arquivos para `public_html/nascimento-team/` via FTP/painel.
-- **GitHub Pages**: publicar este repositório e apontar o caminho/subdomínio desejado.
-- **Netlify / Vercel / Cloudflare Pages**: conectar o repositório e configurar o domínio.
+👉 Passo a passo completo em **[DEPLOY.md](./DEPLOY.md)**.
 
 > Migração futura para o domínio do cliente: como os caminhos são relativos, basta
-> mover a pasta para a raiz do novo domínio — nada no código precisa mudar.
+> apontar o domínio novo para este projeto (ou mover os arquivos para o repo do
+> cliente) — nada no código precisa mudar.
