@@ -13,10 +13,64 @@ const CONFIG = {
   // Mensagem que já vem preenchida quando a pessoa abre o WhatsApp.
   whatsappMessage: 'Olá, Henrique! Vim pela landing page e quero saber mais sobre a consultoria de treino e nutrição.',
 
-  // Barra de escassez (topo da página).
-  vagas: 5,
-  mesReferencia: 'junho',
+  // Barra de escassez — o número de vagas é calculado AUTOMATICAMENTE pela data.
+  // Começa alto no dia 1 e desce ao longo do mês; renova sozinho na virada do mês.
+  // O mês exibido também é automático (sempre o mês vigente).
+  scarcity: {
+    // Pontos de ancoragem [dia do mês, vagas]. Entre eles o valor é interpolado
+    // (queda suave, poucas unidades por dia). Edite à vontade — mantenha em ordem
+    // crescente de dia. Ex.: dia 01 = 8 vagas, dia 10 = 5, dia 20 = 3, dia 25+ = 1.
+    schedule: [
+      [1, 8],
+      [10, 5],
+      [20, 3],
+      [25, 1],
+    ],
+    min: 1, // nunca exibe menos que isso
+    max: 8, // nunca exibe mais que isso
+  },
 };
+
+/* -----------------------------------------------------------------
+   Barra de escassez automática — vagas caem ao longo do mês e o
+   texto se renova sozinho na virada (sem troca manual).
+   ----------------------------------------------------------------- */
+const MESES_PT = [
+  'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
+  'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro',
+];
+
+// Quantas vagas mostrar numa data (interpolação linear entre os pontos do schedule).
+function vagasParaData(date = new Date()) {
+  const dia = date.getDate();
+  const pts = CONFIG.scarcity.schedule;
+  let v;
+  if (dia <= pts[0][0]) {
+    v = pts[0][1];
+  } else if (dia >= pts[pts.length - 1][0]) {
+    v = pts[pts.length - 1][1];
+  } else {
+    for (let i = 0; i < pts.length - 1; i++) {
+      const [d0, v0] = pts[i];
+      const [d1, v1] = pts[i + 1];
+      if (dia >= d0 && dia <= d1) {
+        v = v0 + ((dia - d0) / (d1 - d0)) * (v1 - v0);
+        break;
+      }
+    }
+  }
+  v = Math.round(v);
+  return Math.max(CONFIG.scarcity.min, Math.min(CONFIG.scarcity.max, v));
+}
+
+// Frase completa da barra, com singular/plural e mês vigente.
+function textoEscassez(date = new Date()) {
+  const n = vagasParaData(date);
+  const mes = MESES_PT[date.getMonth()];
+  const vaga = n === 1 ? 'vaga' : 'vagas';
+  const disp = n === 1 ? 'disponível' : 'disponíveis';
+  return `Apenas <strong>${n} ${vaga}</strong> ${disp} em <strong>${mes}</strong> — acompanhamento individual e limitado.`;
+}
 
 /* -----------------------------------------------------------------
    Aplica links e textos a partir do CONFIG
@@ -31,11 +85,7 @@ const CONFIG = {
   });
 
   const scarcity = document.querySelector('[data-scarcity]');
-  if (scarcity) {
-    scarcity.innerHTML =
-      `Apenas <strong>${CONFIG.vagas} vagas</strong> disponíveis em ` +
-      `<strong>${CONFIG.mesReferencia}</strong> — acompanhamento individual e limitado.`;
-  }
+  if (scarcity) scarcity.innerHTML = textoEscassez();
 
   document.querySelectorAll('[data-year]').forEach((el) => {
     el.textContent = new Date().getFullYear();
