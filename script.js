@@ -8,7 +8,7 @@
 const CONFIG = {
   // Número do WhatsApp no formato internacional: DDI + DDD + número (só dígitos).
   // Ex.: Brasil (55) + DDD 19 + 99999-9999  ->  '5519999999999'
-  whatsapp: '5519999999999', // <-- TROQUE pelo número real do Henrique
+  whatsapp: '5516997763003', // +55 16 99776-3003
 
   // Mensagem que já vem preenchida quando a pessoa abre o WhatsApp.
   whatsappMessage: 'Olá, Henrique! Vim pela landing page e quero saber mais sobre a consultoria de treino e nutrição.',
@@ -76,10 +76,21 @@ function textoEscassez(date = new Date()) {
    Aplica links e textos a partir do CONFIG
    ----------------------------------------------------------------- */
 (function applyConfig() {
-  const waUrl = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.whatsappMessage)}`;
+  const waLink = (msg) => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
 
   document.querySelectorAll('[data-wa]').forEach((el) => {
-    el.setAttribute('href', waUrl);
+    // Botões de plano levam uma mensagem personalizada (nome/tipo/valor do plano).
+    let msg = CONFIG.whatsappMessage;
+    const plan = el.closest('.plan');
+    if (plan) {
+      const nome = (plan.querySelector('.plan__name')?.textContent || '').trim();
+      const grupo = plan.closest('[data-plan-group]')?.dataset.planGroup;
+      const tipo = grupo === 'completo' ? 'Dieta + Treino (completo)' : 'Dieta ou Treino';
+      const valor = (plan.querySelector('.plan__value')?.textContent || '').trim();
+      msg = `Olá, Henrique! Tenho interesse no Plano ${nome} — ${tipo}` +
+            (valor ? ` (R$ ${valor}/mês)` : '') + '. Pode me passar mais detalhes?';
+    }
+    el.setAttribute('href', waLink(msg));
     el.setAttribute('target', '_blank');
     el.setAttribute('rel', 'noopener');
   });
@@ -196,18 +207,54 @@ function textoEscassez(date = new Date()) {
    Planos: alterna entre "Dieta ou Treino" e "Dieta + Treino"
    ----------------------------------------------------------------- */
 (function planTabs() {
-  const tabs = document.querySelectorAll('[data-plan-tab]');
-  const groups = document.querySelectorAll('[data-plan-group]');
+  const tabs = Array.from(document.querySelectorAll('[data-plan-tab]'));
+  const groups = Array.from(document.querySelectorAll('[data-plan-group]'));
+  const thumb = document.querySelector('.plan-switch__thumb');
   if (!tabs.length) return;
+  let animating = false;
+
+  const activeTab = () => tabs.find((t) => t.classList.contains('is-active')) || tabs[0];
+  const moveThumb = (btn) => {
+    if (!thumb || !btn) return;
+    thumb.style.width = btn.offsetWidth + 'px';
+    thumb.style.transform = `translateX(${btn.offsetLeft}px)`;
+  };
+
+  // posição inicial do indicador, sem animar
+  if (thumb) {
+    thumb.style.transition = 'none';
+    moveThumb(activeTab());
+    requestAnimationFrame(() => { thumb.style.transition = ''; });
+  }
+  window.addEventListener('resize', () => moveThumb(activeTab()));
+
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
+      if (animating || tab.classList.contains('is-active')) return;
       const key = tab.dataset.planTab;
+      const current = groups.find((g) => !g.classList.contains('is-hidden'));
+      const next = groups.find((g) => g.dataset.planGroup === key);
+
       tabs.forEach((t) => {
         const on = t === tab;
         t.classList.toggle('is-active', on);
         t.setAttribute('aria-selected', String(on));
       });
-      groups.forEach((g) => g.classList.toggle('is-hidden', g.dataset.planGroup !== key));
+      moveThumb(tab);
+
+      if (!current || !next || current === next) return;
+      animating = true;
+      current.classList.add('is-leaving');
+      window.setTimeout(() => {
+        current.classList.add('is-hidden');
+        current.classList.remove('is-leaving');
+        next.classList.remove('is-hidden');
+        next.classList.add('is-entering');
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          next.classList.remove('is-entering');
+          animating = false;
+        }));
+      }, 300);
     });
   });
 })();

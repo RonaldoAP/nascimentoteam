@@ -115,13 +115,55 @@
           <h2>Este acompanhamento faz sentido se você:</h2>
         </header>
 
-        <ul class="check-list reveal">
-          <li>Já tentou dietas e treinos avulsos e percebeu que falta estrutura.</li>
-          <li>Quer emagrecer ou ganhar massa muscular, mas sem viver em função disso.</li>
-          <li>Treina há um tempo e sente que estagnou.</li>
-          <li>Está começando agora e quer começar do jeito certo, sem perder tempo com achismo.</li>
-          <li>Cansou de planos genéricos copiados da internet.</li>
-        </ul>
+        <div class="audience reveal">
+          <article class="aud-card">
+            <span class="aud-tag">
+              <span class="aud-tag__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15"><path fill="currentColor" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 1.6c-3.7 0-7 1.9-7 4.4V20h14v-2c0-2.5-3.3-4.4-7-4.4Z"/></svg></span>
+              <span class="aud-tag__pill">É para você que <b>.01</b></span>
+            </span>
+            <p>Já tentou dietas e treinos avulsos e percebeu que falta estrutura.</p>
+          </article>
+
+          <article class="aud-card">
+            <span class="aud-tag">
+              <span class="aud-tag__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15"><path fill="currentColor" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 1.6c-3.7 0-7 1.9-7 4.4V20h14v-2c0-2.5-3.3-4.4-7-4.4Z"/></svg></span>
+              <span class="aud-tag__pill">É para você que <b>.02</b></span>
+            </span>
+            <p>Quer emagrecer ou ganhar massa muscular, mas sem viver em função disso.</p>
+          </article>
+
+          <article class="aud-card">
+            <span class="aud-tag">
+              <span class="aud-tag__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15"><path fill="currentColor" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 1.6c-3.7 0-7 1.9-7 4.4V20h14v-2c0-2.5-3.3-4.4-7-4.4Z"/></svg></span>
+              <span class="aud-tag__pill">É para você que <b>.03</b></span>
+            </span>
+            <p>Treina há um tempo e sente que estagnou.</p>
+          </article>
+
+          <article class="aud-card">
+            <span class="aud-tag">
+              <span class="aud-tag__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15"><path fill="currentColor" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 1.6c-3.7 0-7 1.9-7 4.4V20h14v-2c0-2.5-3.3-4.4-7-4.4Z"/></svg></span>
+              <span class="aud-tag__pill">É para você que <b>.04</b></span>
+            </span>
+            <p>Está começando agora e quer começar do jeito certo, sem perder tempo com achismo.</p>
+          </article>
+
+          <article class="aud-card">
+            <span class="aud-tag">
+              <span class="aud-tag__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15"><path fill="currentColor" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 1.6c-3.7 0-7 1.9-7 4.4V20h14v-2c0-2.5-3.3-4.4-7-4.4Z"/></svg></span>
+              <span class="aud-tag__pill">É para você que <b>.05</b></span>
+            </span>
+            <p>Cansou de planos genéricos copiados da internet.</p>
+          </article>
+
+          <!-- 6º box = FOTO. Substitua o bloco interno por: <img src="./assets/para-quem.jpg" alt="..." /> -->
+          <figure class="aud-card aud-card--photo">
+            <div class="aud-photo">
+              <svg viewBox="0 0 24 24" width="40" height="40" aria-hidden="true"><path fill="currentColor" d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-3.34 0-10 1.67-10 5v3h20v-3c0-3.33-6.66-5-10-5Z"/></svg>
+              <span>Foto a enviar<br /><small>./assets/para-quem.jpg</small></span>
+            </div>
+          </figure>
+        </div>
 
         <div class="honesty reveal">
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2 1 21h22L12 2Zm1 14h-2v2h2v-2Zm0-6h-2v4h2v-4Z"/></svg>
@@ -137,11 +179,19 @@
     <!-- 3. COMO EU TRABALHO (3 PILARES)                              -->
     <!-- =========================================================== -->
     <section class="section section--alt" id="metodo">
-      <div class="container">
-        <header class="section-head reveal">
-          <span class="eyebrow">Como eu trabalho</span>
-          <h2>O que muda quando o acompanhamento é feito com critério</h2>
-        </header>
+      <div class="container metodo-wrap">
+        <div class="metodo-aside">
+          <header class="section-head reveal">
+            <span class="eyebrow">Como eu trabalho</span>
+            <h2>O que muda quando o acompanhamento é feito com critério</h2>
+            <p class="section-head__note">Mais do que um plano: critério em cada decisão — do treino à dieta — ajustado à sua realidade.</p>
+          </header>
+          <!-- SUBSTITUA por: <img src="./assets/metodo.jpg" alt="Henrique / treino" /> -->
+          <figure class="metodo-photo">
+            <svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true"><path fill="currentColor" d="M20.57 14.86 22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43Z"/></svg>
+            <small>./assets/metodo.jpg</small>
+          </figure>
+        </div>
 
         <div class="pillars">
           <article class="pillar">
@@ -360,6 +410,7 @@
         </header>
 
         <div class="plan-switch reveal" role="tablist" aria-label="Tipo de acompanhamento">
+          <span class="plan-switch__thumb" aria-hidden="true"></span>
           <button class="plan-switch__btn is-active" type="button" role="tab" aria-selected="true" data-plan-tab="individual">Dieta ou Treino</button>
           <button class="plan-switch__btn" type="button" role="tab" aria-selected="false" data-plan-tab="completo">Dieta + Treino <span>completo</span></button>
         </div>
