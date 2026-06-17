@@ -193,6 +193,26 @@ function textoEscassez(date = new Date()) {
 })();
 
 /* -----------------------------------------------------------------
+   Planos: alterna entre "Dieta ou Treino" e "Dieta + Treino"
+   ----------------------------------------------------------------- */
+(function planTabs() {
+  const tabs = document.querySelectorAll('[data-plan-tab]');
+  const groups = document.querySelectorAll('[data-plan-group]');
+  if (!tabs.length) return;
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const key = tab.dataset.planTab;
+      tabs.forEach((t) => {
+        const on = t === tab;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', String(on));
+      });
+      groups.forEach((g) => g.classList.toggle('is-hidden', g.dataset.planGroup !== key));
+    });
+  });
+})();
+
+/* -----------------------------------------------------------------
    Scroll reveal
    ----------------------------------------------------------------- */
 (function scrollReveal() {

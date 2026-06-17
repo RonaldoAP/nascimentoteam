@@ -348,54 +348,110 @@
     <!-- =========================================================== -->
     <section class="section section--alt" id="planos">
       <div class="container">
-        <header class="section-head reveal">
+        <header class="section-head section-head--center reveal">
           <span class="eyebrow">Planos</span>
           <h2>Escolha qual caminho faz sentido pra você</h2>
-          <p class="section-head__note">Todos os planos incluem plano de treino e nutrição individuais, check-ins e canal direto. Sem fidelidade.</p>
+          <p class="section-head__note">Um acompanhamento, diferentes níveis de suporte. O método é o mesmo em todos os planos — o que muda é o tempo de acompanhamento, a frequência de ajustes e o nível de suporte. Sem fidelidade.</p>
         </header>
 
-        <div class="plans">
-          <article class="plan reveal">
-            <h3 class="plan__name">Mensal</h3>
-            <p class="plan__tagline">Para começar e sentir o método de perto.</p>
-            <div class="plan__price"><span class="plan__currency">R$</span><span class="plan__value">—</span><span class="plan__period">/mês</span></div>
-            <ul class="plan__list">
-              <li>Plano de treino e nutrição individual</li>
-              <li>Ajustes ao longo do mês</li>
-              <li>Check-in mensal</li>
-              <li>Canal direto para dúvidas</li>
-            </ul>
-            <a href="#contato" class="btn btn--ghost btn--block" data-wa>Falar sobre o plano</a>
-          </article>
-
-          <article class="plan plan--featured reveal">
-            <span class="plan__badge">Mais escolhido</span>
-            <h3 class="plan__name">Trimestral</h3>
-            <p class="plan__tagline">Tempo ideal para ver mudança real de composição.</p>
-            <div class="plan__price"><span class="plan__currency">R$</span><span class="plan__value">—</span><span class="plan__period">/trimestre</span></div>
-            <ul class="plan__list">
-              <li>Tudo do plano mensal</li>
-              <li>Check-ins quinzenais</li>
-              <li>Reajuste contínuo do plano</li>
-              <li>Prioridade no atendimento</li>
-            </ul>
-            <a href="#contato" class="btn btn--primary btn--block" data-wa>Falar sobre o plano</a>
-          </article>
-
-          <article class="plan reveal">
-            <h3 class="plan__name">Semestral</h3>
-            <p class="plan__tagline">Para consolidar resultado e autonomia de verdade.</p>
-            <div class="plan__price"><span class="plan__currency">R$</span><span class="plan__value">—</span><span class="plan__period">/semestre</span></div>
-            <ul class="plan__list">
-              <li>Tudo do plano trimestral</li>
-              <li>Acompanhamento de longo prazo</li>
-              <li>Melhor custo-benefício</li>
-              <li>Suporte próximo e constante</li>
-            </ul>
-            <a href="#contato" class="btn btn--ghost btn--block" data-wa>Falar sobre o plano</a>
-          </article>
+        <div class="plan-switch reveal" role="tablist" aria-label="Tipo de acompanhamento">
+          <button class="plan-switch__btn is-active" type="button" role="tab" aria-selected="true" data-plan-tab="individual">Dieta ou Treino</button>
+          <button class="plan-switch__btn" type="button" role="tab" aria-selected="false" data-plan-tab="completo">Dieta + Treino <span>completo</span></button>
         </div>
-        <p class="plans__note">Valores apresentados na conversa inicial, de acordo com o seu objetivo. <a href="#contato" data-wa>Fale comigo no WhatsApp</a> para os valores atualizados.</p>
+
+        <!-- Grupo: Dieta OU Treino -->
+        <div data-plan-group="individual">
+          <div class="plans">
+            <article class="plan">
+              <h3 class="plan__name">Mensal</h3>
+              <p class="plan__tagline">Para entrar e sentir o método de perto.</p>
+              <div class="plan__price"><span class="plan__currency">R$</span><span class="plan__value">400</span><span class="plan__period">/mês</span></div>
+              <ul class="plan__list">
+                <li class="is-in">Formulário de anamnese completo</li>
+                <li class="is-in">1 feedback e ajuste</li>
+                <li class="is-out">Chamada inicial de alinhamento</li>
+                <li class="is-out">Chamadas mensais de revisão</li>
+                <li class="is-out">Suporte ativo no WhatsApp</li>
+                <li class="is-out">Infoprodutos Nascimento Team</li>
+              </ul>
+              <a href="#contato" class="btn btn--ghost btn--block" data-wa>Entrar em contato</a>
+            </article>
+
+            <article class="plan">
+              <h3 class="plan__name">Trimestral</h3>
+              <p class="plan__tagline">Tempo para ver mudança real de composição.</p>
+              <div class="plan__price"><span class="plan__currency">R$</span><span class="plan__value">295</span><span class="plan__period">/mês</span></div>
+              <p class="plan__cash">ou R$ 885 à vista</p>
+              <ul class="plan__list">
+                <li class="is-in">Formulário de anamnese completo</li>
+                <li class="is-in">Chamada inicial de alinhamento</li>
+                <li class="is-in">Feedbacks e ajustes mensais</li>
+                <li class="is-in">Chamadas mensais de revisão</li>
+                <li class="is-out">Suporte ativo no WhatsApp</li>
+                <li class="is-out">Infoprodutos Nascimento Team</li>
+              </ul>
+              <a href="#contato" class="btn btn--ghost btn--block" data-wa>Entrar em contato</a>
+            </article>
+
+            <article class="plan plan--featured">
+              <span class="plan__badge">Mais vantajoso</span>
+              <h3 class="plan__name">Semestral</h3>
+              <p class="plan__tagline">Melhor custo-benefício e suporte completo.</p>
+              <div class="plan__price"><span class="plan__currency">R$</span><span class="plan__value">270</span><span class="plan__period">/mês</span></div>
+              <p class="plan__cash">ou R$ 1.620 à vista</p>
+              <ul class="plan__list">
+                <li class="is-in">Formulário de anamnese completo</li>
+                <li class="is-in">Chamada inicial de alinhamento</li>
+                <li class="is-in">Feedbacks e ajustes mensais</li>
+                <li class="is-in">Chamadas mensais de revisão</li>
+                <li class="is-in">Suporte ativo no WhatsApp</li>
+                <li class="is-in">Infoprodutos Nascimento Team</li>
+              </ul>
+              <a href="#contato" class="btn btn--primary btn--block" data-wa>Entrar em contato</a>
+            </article>
+          </div>
+        </div>
+
+        <!-- Grupo: Dieta E Treino (completo) -->
+        <div data-plan-group="completo" class="is-hidden">
+          <p class="plans__intro">Dieta e treino não se separam. Para os <strong>melhores resultados possíveis</strong>, o ideal é ter alguém controlando todas as variáveis de forma precisa e sinérgica — nutrição e treinamento alinhados.</p>
+          <div class="plans plans--2">
+            <article class="plan">
+              <h3 class="plan__name">Trimestral</h3>
+              <p class="plan__tagline">Dieta + treino, acompanhamento de 3 meses.</p>
+              <div class="plan__price"><span class="plan__currency">R$</span><span class="plan__value">515</span><span class="plan__period">/mês</span></div>
+              <p class="plan__cash">ou R$ 1.545 à vista</p>
+              <ul class="plan__list">
+                <li class="is-in">Formulário de anamnese completo</li>
+                <li class="is-in">Chamada inicial de alinhamento</li>
+                <li class="is-in">Feedbacks e ajustes mensais</li>
+                <li class="is-in">Chamadas mensais de revisão</li>
+                <li class="is-out">Suporte ativo no WhatsApp</li>
+                <li class="is-out">Infoprodutos Nascimento Team</li>
+              </ul>
+              <a href="#contato" class="btn btn--ghost btn--block" data-wa>Entrar em contato</a>
+            </article>
+
+            <article class="plan plan--featured">
+              <span class="plan__badge">Mais vantajoso</span>
+              <h3 class="plan__name">Semestral</h3>
+              <p class="plan__tagline">Resultado completo, com o melhor valor.</p>
+              <div class="plan__price"><span class="plan__currency">R$</span><span class="plan__value">450</span><span class="plan__period">/mês</span></div>
+              <p class="plan__cash">ou R$ 2.700 à vista</p>
+              <ul class="plan__list">
+                <li class="is-in">Formulário de anamnese completo</li>
+                <li class="is-in">Chamada inicial de alinhamento</li>
+                <li class="is-in">Feedbacks e ajustes mensais</li>
+                <li class="is-in">Chamadas mensais de revisão</li>
+                <li class="is-in">Suporte ativo no WhatsApp</li>
+                <li class="is-in">Infoprodutos Nascimento Team</li>
+              </ul>
+              <a href="#contato" class="btn btn--primary btn--block" data-wa>Entrar em contato</a>
+            </article>
+          </div>
+        </div>
+
+        <p class="plans__note">*Incidência de juros conforme o parcelamento. Os planos acima são referentes ao acompanhamento de dieta <em>ou</em> treino; a opção <em>completa</em> contempla dieta <em>e</em> treino. Valores e condições confirmados na conversa inicial. <a href="#contato" data-wa>Fale comigo no WhatsApp</a>.</p>
       </div>
     </section>
 
