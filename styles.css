@@ -267,7 +267,12 @@ h1, h2, h3, h4, p, li, blockquote, figcaption, summary, .eyebrow, .tl-tag { text
 .photo-placeholder svg { color: var(--primary); opacity: 0.55; }
 .photo-placeholder figcaption { font-size: 0.85rem; }
 .photo-placeholder small { font-size: 0.72rem; color: var(--text-dim); opacity: 0.7; }
-.hero__media img, .about__media img { border-radius: var(--radius-lg); box-shadow: var(--shadow); width: 100%; }
+.hero__media img, .about__media img { width: 100%; display: block; border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+.hero__photo {
+  aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%;
+  border: 2px solid rgba(186, 99, 255, 0.6);
+  box-shadow: var(--shadow), 0 0 40px -12px rgba(186, 99, 255, 0.5);
+}
 
 /* ============================================================= */
 /* PARA QUEM É — cards "é para você que"                          */
