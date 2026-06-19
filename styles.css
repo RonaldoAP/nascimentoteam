@@ -95,8 +95,8 @@ h1, h2, h3, h4, p, li, blockquote, figcaption, summary, .eyebrow, .tl-tag { text
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   padding: var(--pad-y) var(--pad-x);
   border-radius: 999px;
-  font: inherit; font-weight: 700; font-size: 0.95rem;
-  text-transform: uppercase; letter-spacing: 0.05em;
+  font: inherit; font-weight: 700; font-size: 0.96rem;
+  text-transform: none; letter-spacing: 0.01em;
   cursor: pointer; border: 1px solid transparent;
   transition: transform 0.2s var(--ease), box-shadow 0.25s var(--ease), background 0.2s, border-color 0.2s, color 0.2s;
   white-space: nowrap;
@@ -341,13 +341,31 @@ h1, h2, h3, h4, p, li, blockquote, figcaption, summary, .eyebrow, .tl-tag { text
 .metodo-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .metodo-photo svg { color: var(--primary); opacity: 0.5; }
 .metodo-photo small { font-size: 0.72rem; opacity: 0.7; }
+.metodo-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.metodo-photo.is-empty img { display: none; }
+.flip-h { transform: scaleX(-1); }
+
+/* Moldura de foto reutilizável (placeholder gracioso até o arquivo existir) */
+.photo-frame {
+  position: relative; aspect-ratio: 4 / 5; border-radius: var(--radius-lg); overflow: hidden;
+  border: 1px solid var(--border-strong); box-shadow: var(--shadow);
+  background:
+    radial-gradient(120% 120% at 70% 0%, rgba(186, 99, 255, 0.26), transparent 55%),
+    linear-gradient(160deg, var(--surface-2), #101010);
+}
+.photo-frame--purple { border: 2px solid rgba(186, 99, 255, 0.6); box-shadow: var(--shadow), 0 0 40px -12px rgba(186, 99, 255, 0.5); }
+.photo-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.photo-frame.is-empty img { display: none; }
+.photo-frame__note { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 10px; padding: 16px; text-align: center; color: var(--text-dim); font-size: 0.85rem; }
+.photo-frame__note svg { color: var(--primary); opacity: 0.5; }
+.photo-frame__note small { color: var(--text-dim); opacity: 0.7; font-size: 0.72rem; }
 
 /* Pilha sticky: cada card encosta no topo e o próximo sobrepõe o anterior.
    Obs.: o pai precisa ser bloco (sticky não funciona em item flex). */
 .pillars { display: block; }
 .pillar {
-  position: sticky; padding: clamp(30px, 4vw, 46px);
-  min-height: 42vh; margin-bottom: 22px;
+  position: sticky; padding: clamp(26px, 3.4vw, 40px);
+  min-height: 36vh; margin-bottom: 20px;
   display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
   background: var(--surface); border: 1px solid var(--border-strong); border-radius: var(--radius-lg);
   overflow: hidden;
@@ -528,7 +546,7 @@ h1, h2, h3, h4, p, li, blockquote, figcaption, summary, .eyebrow, .tl-tag { text
 /* ============================================================= */
 /* SOBRE                                                         */
 /* ============================================================= */
-.about { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(32px, 5vw, 64px); align-items: center; }
+.about { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 5vw, 64px); align-items: center; }
 .about__media { position: relative; max-width: 420px; }
 .about__content h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); margin-bottom: 20px; }
 .about__content p { color: var(--text-muted); margin-bottom: 16px; }
@@ -559,7 +577,7 @@ h1, h2, h3, h4, p, li, blockquote, figcaption, summary, .eyebrow, .tl-tag { text
   line-height: 1;
 }
 .faq__item[open] summary::after { transform: translateY(-50%) rotate(45deg); }
-.faq__answer { padding: 0 24px 22px; color: var(--text-muted); }
+.faq__answer { padding: 0 24px 22px; color: var(--text-muted); overflow: hidden; transition: height 0.32s var(--ease); }
 
 /* ============================================================= */
 /* CTA FINAL                                                     */

@@ -138,16 +138,49 @@ function textoEscassez(date = new Date()) {
 })();
 
 /* -----------------------------------------------------------------
-   FAQ: comportamento de acordeão (abre um, fecha os outros)
+   FAQ: abertura suave (anima a altura) + acordeão (abre um, fecha os outros)
    ----------------------------------------------------------------- */
-(function faqAccordion() {
-  const items = document.querySelectorAll('.faq__item');
+(function faqSmooth() {
+  const items = Array.from(document.querySelectorAll('.faq__item'));
+  if (!items.length) return;
+
+  const openItem = (item) => {
+    const ans = item.querySelector('.faq__answer');
+    item.open = true;
+    const h = ans.scrollHeight;
+    ans.style.height = '0px';
+    ans.getBoundingClientRect(); // força reflow
+    ans.style.height = h + 'px';
+    const end = (e) => {
+      if (e.propertyName !== 'height') return;
+      ans.style.height = 'auto';
+      ans.removeEventListener('transitionend', end);
+    };
+    ans.addEventListener('transitionend', end);
+  };
+
+  const closeItem = (item) => {
+    const ans = item.querySelector('.faq__answer');
+    ans.style.height = ans.scrollHeight + 'px';
+    ans.getBoundingClientRect();
+    ans.style.height = '0px';
+    const end = (e) => {
+      if (e.propertyName !== 'height') return;
+      item.open = false;
+      ans.style.height = '';
+      ans.removeEventListener('transitionend', end);
+    };
+    ans.addEventListener('transitionend', end);
+  };
+
   items.forEach((item) => {
-    item.addEventListener('toggle', () => {
+    item.querySelector('summary').addEventListener('click', (e) => {
+      e.preventDefault();
       if (item.open) {
-        items.forEach((other) => {
-          if (other !== item) other.open = false;
-        });
+        closeItem(item);
+      } else {
+        items.forEach((o) => { if (o !== item && o.open) closeItem(o); });
+        openItem(item);
       }
     });
   });
