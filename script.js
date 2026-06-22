@@ -21,13 +21,13 @@ const CONFIG = {
     // (queda suave, poucas unidades por dia). Edite à vontade — mantenha em ordem
     // crescente de dia. Ex.: dia 01 = 8 vagas, dia 10 = 5, dia 20 = 3, dia 25+ = 1.
     schedule: [
-      [1, 8],
-      [10, 5],
+      [1, 12],
+      [10, 7],
       [20, 3],
       [25, 1],
     ],
     min: 1, // nunca exibe menos que isso
-    max: 8, // nunca exibe mais que isso
+    max: 12, // nunca exibe mais que isso
   },
 };
 
