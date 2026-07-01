@@ -293,6 +293,19 @@ function textoEscassez(date = new Date()) {
 })();
 
 /* -----------------------------------------------------------------
+   Depoimentos: pausa o marquee ao tocar (o hover do mouse é via CSS)
+   ----------------------------------------------------------------- */
+(function marqueePause() {
+  const m = document.querySelector('[data-marquee]');
+  if (!m) return;
+  const pause = () => m.classList.add('is-paused');
+  const resume = () => m.classList.remove('is-paused');
+  m.addEventListener('touchstart', pause, { passive: true });
+  m.addEventListener('touchend', resume);
+  m.addEventListener('touchcancel', resume);
+})();
+
+/* -----------------------------------------------------------------
    Scroll reveal
    ----------------------------------------------------------------- */
 (function scrollReveal() {

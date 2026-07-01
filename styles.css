@@ -307,8 +307,8 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
 .aud-tag__pill b { opacity: 0.65; margin-left: 3px; }
 .aud-card p { color: var(--text-soft); font-size: 1rem; }
 /* célula de foto (último box) */
-.aud-card--photo { padding: 0; overflow: hidden; min-height: 220px; }
-.aud-card--photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.aud-card--photo { padding: 0; overflow: hidden; min-height: 220px; position: relative; }
+.aud-card--photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; transform: scale(2.2); transform-origin: 50% 66%; display: block; }
 .aud-photo {
   width: 100%; height: 100%; min-height: 220px; display: grid; place-content: center; justify-items: center; gap: 10px;
   text-align: center; color: var(--text-dim); font-size: 0.82rem;
@@ -472,6 +472,31 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
   background: var(--border-strong); transition: background 0.2s, width 0.2s;
 }
 .carousel__dots button.is-active { background: var(--primary-light); width: 22px; border-radius: 4px; }
+
+/* ============================================================= */
+/* DEPOIMENTOS — marquee infinito full-width com fade nas bordas  */
+/* ============================================================= */
+#depoimentos .container { margin-bottom: clamp(30px, 4vw, 48px); }
+.marquee {
+  width: 100%; overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+}
+.marquee__track {
+  display: flex; width: max-content;
+  animation: marquee-scroll 80s linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee__track,
+.marquee.is-paused .marquee__track { animation-play-state: paused; }
+.marquee__item {
+  flex-shrink: 0; height: clamp(300px, 40vw, 400px); width: auto;
+  margin-right: 18px; border-radius: 16px;
+  border: 1px solid var(--border-strong); box-shadow: var(--shadow);
+  user-select: none; -webkit-user-drag: none;
+}
+@keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
 
 /* ============================================================= */
 /* PLANOS                                                        */
