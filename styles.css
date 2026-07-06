@@ -723,7 +723,7 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
   .hero__media { max-width: 420px; margin-inline: auto; }
   .hero__badge { left: auto; right: 14px; }
   .about { grid-template-columns: 1fr; }
-  .about__media { max-width: 360px; margin-inline: auto; }
+  .about__media { width: min(360px, 100%); margin-inline: auto; }
   .features { grid-template-columns: 1fr 1fr; }
   .timeline-wrap { grid-template-columns: 1fr; }
   .timeline-intro { position: static; }
