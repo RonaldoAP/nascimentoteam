@@ -11,7 +11,7 @@ const CONFIG = {
   whatsapp: '5516997763003', // +55 16 99776-3003
 
   // Mensagem que já vem preenchida quando a pessoa abre o WhatsApp.
-  whatsappMessage: 'Olá, Henrique! Vim pela landing page e quero saber mais sobre a consultoria de treino e nutrição.',
+  whatsappMessage: 'Olá, Henrique! Vim pelo seu site e quero saber mais sobre a consultoria de treino e nutrição.',
 
   // Barra de escassez — o número de vagas é calculado AUTOMATICAMENTE pela data.
   // Começa alto no dia 1 e desce ao longo do mês; renova sozinho na virada do mês.
@@ -67,9 +67,10 @@ function vagasParaData(date = new Date()) {
 function textoEscassez(date = new Date()) {
   const n = vagasParaData(date);
   const mes = MESES_PT[date.getMonth()];
+  const mesCap = mes.charAt(0).toUpperCase() + mes.slice(1);
   const vaga = n === 1 ? 'vaga' : 'vagas';
   const disp = n === 1 ? 'disponível' : 'disponíveis';
-  return `Apenas <strong>${n} ${vaga}</strong> ${disp} em <strong>${mes}</strong> — acompanhamento individual e limitado.`;
+  return `Apenas <strong>${n} ${vaga}</strong> ${disp} em <strong>${mesCap}</strong>.`;
 }
 
 /* -----------------------------------------------------------------
@@ -87,8 +88,8 @@ function textoEscassez(date = new Date()) {
       const grupo = plan.closest('[data-plan-group]')?.dataset.planGroup;
       const tipo = grupo === 'completo' ? 'Dieta + Treino (completo)' : 'Dieta ou Treino';
       const valor = (plan.querySelector('.plan__value')?.textContent || '').trim();
-      msg = `Olá, Henrique! Tenho interesse no Plano ${nome} — ${tipo}` +
-            (valor ? ` (R$ ${valor}/mês)` : '') + '. Pode me passar mais detalhes?';
+      msg = `Olá, Henrique! Vim pelo seu site e tenho interesse no Plano ${nome} (${tipo})` +
+            (valor ? `, R$ ${valor}/mês` : '') + '. Pode me passar mais detalhes?';
     }
     el.setAttribute('href', waLink(msg));
     el.setAttribute('target', '_blank');
