@@ -361,7 +361,7 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
     linear-gradient(160deg, var(--surface-2), #101010);
 }
 .photo-frame--purple { border: 2px solid rgba(186, 99, 255, 0.6); box-shadow: var(--shadow), 0 0 40px -12px rgba(186, 99, 255, 0.5); }
-.photo-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.photo-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
 .photo-frame.is-empty img { display: none; }
 .photo-frame__note { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 10px; padding: 16px; text-align: center; color: var(--text-dim); font-size: 0.85rem; }
 .photo-frame__note svg { color: var(--primary); opacity: 0.5; }
