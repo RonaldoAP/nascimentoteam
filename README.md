@@ -2,6 +2,10 @@
 
 Landing page de consultoria online de treino e nutrição (Henrique Silvério do Nascimento).
 
+> 📋 **Vai assumir ou continuar o projeto?** Leia primeiro o **[HANDOFF.md](./HANDOFF.md)** —
+> documento completo de transferência (arquitetura, seções, regras de conteúdo,
+> armadilhas e como continuar).
+
 Página estática (HTML + CSS + JavaScript puro, **sem build**). Funciona em qualquer
 hospedagem e em subdiretório — todos os caminhos são relativos, então roda em
 `https://ronaldox.com.br/nascimento-team/` sem ajustes.
