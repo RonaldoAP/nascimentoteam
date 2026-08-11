@@ -307,6 +307,88 @@ function textoEscassez(date = new Date()) {
 })();
 
 /* -----------------------------------------------------------------
+   Depoimentos no MOBILE: autoplay slide a slide
+
+   No desktop os depoimentos continuam sendo o marquee infinito (CSS puro).
+   No mobile (<=767px) o CSS desliga a animação e transforma a faixa num
+   slider com scroll-snap; aqui o autoplay avança um slide por vez.
+   - pausa enquanto a pessoa está arrastando e volta 6s depois;
+   - pausa quando a seção sai da tela ou a aba fica em segundo plano;
+   - respeita "prefers-reduced-motion".
+   ----------------------------------------------------------------- */
+(function testimonialsAutoplay() {
+  const root = document.querySelector('[data-marquee]');
+  if (!root) return;
+  const track = root.querySelector('.marquee__track');
+  if (!track) return;
+
+  const isMobile = window.matchMedia('(max-width: 767px)');
+  const stillPrefered = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const INTERVAL = 3800; // tempo de cada slide
+  const RESUME_AFTER = 6000; // espera depois de a pessoa interagir
+
+  let timer = null;
+  let resumeTimer = null;
+  let visible = true;
+
+  // só os slides realmente exibidos (as cópias do loop ficam display:none)
+  const slides = () => Array.from(track.children).filter((el) => el.offsetParent !== null);
+
+  const advance = () => {
+    const items = slides();
+    if (items.length < 2) return;
+    const port = root.clientWidth;
+    const center = root.scrollLeft + port / 2;
+    // primeiro slide cujo centro ainda está à frente do centro atual
+    let next = items.find((el) => el.offsetLeft + el.offsetWidth / 2 > center + 4);
+    if (!next) next = items[0]; // chegou ao fim: recomeça
+    root.scrollTo({
+      left: Math.max(0, next.offsetLeft - (port - next.offsetWidth) / 2),
+      behavior: 'smooth',
+    });
+  };
+
+  const stop = () => {
+    if (timer) { clearInterval(timer); timer = null; }
+  };
+  const start = () => {
+    stop();
+    if (!isMobile.matches || stillPrefered.matches || !visible || document.hidden) return;
+    timer = setInterval(advance, INTERVAL);
+  };
+  const hold = () => {
+    stop();
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(start, RESUME_AFTER);
+  };
+
+  root.addEventListener('pointerdown', hold);
+  root.addEventListener('touchstart', hold, { passive: true });
+  root.addEventListener('wheel', hold, { passive: true });
+  document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting;
+        visible ? start() : stop();
+      },
+      { threshold: 0.15 }
+    ).observe(root);
+  }
+
+  const onBreakpoint = () => {
+    stop();
+    clearTimeout(resumeTimer);
+    if (isMobile.matches) root.scrollLeft = 0;
+    start();
+  };
+  if (isMobile.addEventListener) isMobile.addEventListener('change', onBreakpoint);
+
+  start();
+})();
+
+/* -----------------------------------------------------------------
    Scroll reveal
    ----------------------------------------------------------------- */
 (function scrollReveal() {
