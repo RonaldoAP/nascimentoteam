@@ -87,7 +87,9 @@ index.html        → home (todas as seções da página principal)
 planos.html       → página /planos, com os valores de cada plano
 styles.css        → estilos (tokens em :root + responsividade no fim do arquivo)
 script.js         → CONFIG (no topo) + interações
-vercel.json       → headers de cache/segurança
+vercel.json       → cleanUrls + headers de cache/segurança
+robots.txt        → liberação para buscadores + link do sitemap
+sitemap.xml       → as duas URLs (/ e /planos) em nascimentoteam.com.br
 README.md         → visão geral e o que personalizar
 DEPLOY.md         → passo a passo de publicação/roteamento na Vercel
 HANDOFF.md        → este documento
