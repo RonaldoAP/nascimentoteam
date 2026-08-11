@@ -49,6 +49,13 @@ mesmo repositório.
 
 ### Vercel
 - O projeto está publicado na Vercel: **https://nascimentoteam.vercel.app**.
+- **Domínio próprio:** `nascimentoteam.com.br` (DNS propagando). A home fica na
+  raiz e os valores em **`/planos`**. As tags `canonical`/`og:url` das duas
+  páginas já apontam para esse domínio.
+- **URLs limpas:** o `vercel.json` usa `"cleanUrls": true`, então `/planos` serve
+  o `planos.html` (e `/planos.html` redireciona para `/planos`). **Ao abrir os
+  arquivos localmente ou por um servidor simples, use `planos.html` na URL** — o
+  `cleanUrls` só existe na Vercel.
 - **Branch de produção na Vercel:** `claude/dreamy-noether-yhi3oj`. **Todo push
   nessa branch dispara um deploy automático** (leva ~10–30s para ir ao ar).
 - Não há build: a Vercel só serve os arquivos estáticos. `vercel.json` define
@@ -76,20 +83,23 @@ mesmo repositório.
 ## 3. Estrutura de arquivos
 
 ```
-index.html        → todo o conteúdo e as seções da página
+index.html        → home (todas as seções da página principal)
+planos.html       → página /planos, com os valores de cada plano
 styles.css        → estilos (tokens em :root + responsividade no fim do arquivo)
 script.js         → CONFIG (no topo) + interações
-vercel.json       → headers de cache/segurança
+vercel.json       → cleanUrls + headers de cache/segurança
+robots.txt        → liberação para buscadores + link do sitemap
+sitemap.xml       → as duas URLs (/ e /planos) em nascimentoteam.com.br
 README.md         → visão geral e o que personalizar
 DEPLOY.md         → passo a passo de publicação/roteamento na Vercel
 HANDOFF.md        → este documento
 img/
   favicon.svg
   henrique.jpg            → foto da HERO (800x1200)
-  IMG_2227.JPG            → foto do "Sobre" (bio) — otimizada 1200x1800
+  henrique-sobre.webp     → foto do "Sobre" (bio) — 1000x1500
+  IMG_2227.JPG            → foto do 6º box de "Para quem é" — 1200x1800
   IMG_2218.JPG            → foto da dobra "Como eu trabalho" (espelhada via CSS)
-  para-quem.webp         → foto do 6º box de "Para quem é" (recorte do tronco pra cima)
-  IMG_2720.JPG           → ORIGINAL do recorte acima (2 MB, NÃO é servida ao visitante)
+  IMG_2720.JPG           → original sem uso na página (2 MB, NÃO é servida ao visitante)
   depoimentos/
     depoimento-01.webp … depoimento-19.webp   → prints reais dos alunos (carrossel)
 ```
@@ -135,13 +145,13 @@ Ordem no `index.html` (cada bloco tem um comentário `<!-- N. NOME -->`):
 |---|------------|--------------------|
 | 00 | Barra de escassez + Header | Barra roxa com "Apenas X vagas disponíveis em [Mês]." (número e mês automáticos, ver §6). Header fixo (sticky) com logo + navegação. **No mobile: logo + menu hambúrguer, sem botão de WhatsApp** (removido a pedido do cliente). |
 | 1 | Hero (`.hero`, âncora `#topo`) | Título grande + subtítulo + CTA "Entrar em contato" + microcopy + foto (`henrique.jpg`) com borda roxa e selo "100%". **No mobile a foto vem depois do CTA.** |
-| 2 | `#para-quem` — "Para quem é" | Grade de 6 boxes: 5 cartões de texto "É para você que .0X" + **1 box de foto** (`para-quem.webp`, aluno enquadrado do tronco pra cima). Abaixo, o **box de alerta amarelo** ("Honestidade antes de tudo"). Gap entre boxes reduzido a pedido. |
+| 2 | `#para-quem` — "Para quem é" | Grade de 6 boxes: 5 cartões de texto "É para você que .0X" + **1 box de foto** (`IMG_2227.JPG`). Abaixo, o **box de alerta amarelo** ("Honestidade antes de tudo"). Gap entre boxes reduzido a pedido. |
 | 3 | `#metodo` — "Como eu trabalho" | Layout 2 colunas: à esquerda um **aside sticky** (cabeçalho + foto `IMG_2218.JPG`, espelhada horizontalmente via `.flip-h`); à direita **3 pilares que empilham com efeito sticky**. Cada pilar tem ícone Lucide (dedo/**digital**, **maçã**, **cérebro-circuito**), número gigante em marca d'água ao fundo e brilho roxo. |
 | 4 | `#processo` — "Como funciona" | Linha do tempo (timeline) de 4 passos. |
 | 5 | `#incluso` — "O que está incluso" | Grade de features (o que o aluno recebe). |
-| 6 | `#depoimentos` — Prova social | **Carrossel infinito full-width** (marquee) com 19 prints reais (duplicados para 38 itens), **fade nas bordas** na cor da página e **pausa no hover do mouse e no toque**. **No mobile mostra um por vez**, imagem grande e legível. |
-| 7 | `#planos` — Planos | Abas ("Dieta ou Treino" / "Dieta + Treino completo") com thumb deslizante. Cartões de plano **sem preço** (só entregáveis, em checklist ✓/✗). Rodapé com a frase **"Fale comigo no WhatsApp"** em roxo, sozinha na última linha. |
-| 8 | `#sobre` — Sobre | Bio do Henrique (texto à esquerda) + **foto com moldura roxa** (`IMG_2227.JPG`) à direita, na altura do texto. |
+| 6 | `#depoimentos` — Prova social | **Desktop:** carrossel infinito full-width (marquee CSS) com 19 prints reais (duplicados para 38 itens), fade nas bordas e pausa no hover. **Mobile (≤767px):** o marquee é desligado e vira um **slider com scroll-snap que avança sozinho, um slide por vez** (função `testimonialsAutoplay`); as cópias do loop ficam `display:none`. |
+| 7 | `#planos` — Planos | Abas ("Dieta ou Treino" / "Dieta + Treino completo") com thumb deslizante. Cartões de plano **sem preço** (só entregáveis, em checklist ✓/✗) + botão **"Ver os valores de cada plano"**, que leva para `/planos`. |
+| 8 | `#sobre` — Sobre | Bio do Henrique (texto à esquerda) + **foto com moldura roxa** (`henrique-sobre.webp`) à direita, na altura do texto. |
 | 9 | `#faq` — Dúvidas frequentes | Acordeão com abertura suave (altura animada). Cabeçalho: rótulo "FAQ" + título "Dúvidas frequentes", centralizado. |
 | 10 | `#contato` — CTA final | Chamada final para o WhatsApp. |
 | — | Botão flutuante de WhatsApp | Fixo no canto inferior direito, verde `#25d366`, com anel pulsante e leve flutuação — réplica do botão do ronaldox.com.br. |
@@ -185,8 +195,12 @@ const CONFIG = {
   depoimentos virou marquee via CSS). A função é inofensiva (sai cedo se não achar
   o elemento). Pode ser removida numa limpeza futura.
 - **`planTabs`** — troca as abas de planos com transição suave (thumb + fade).
-- **`marqueePause`** — pausa o carrossel de depoimentos no **toque** (o pause no
+- **`marqueePause`** — pausa o marquee de depoimentos no **toque** (o pause no
   hover do mouse é feito por CSS).
+- **`testimonialsAutoplay`** — só age no **mobile** (≤767px): avança os
+  depoimentos de slide em slide a cada 3,8s. Pausa enquanto a pessoa arrasta
+  (volta 6s depois), quando a seção sai da tela e quando a aba fica em segundo
+  plano; respeita `prefers-reduced-motion`.
 - **`scrollReveal`** — IntersectionObserver que adiciona `.is-visible` aos
   elementos `.reveal`.
 
@@ -220,10 +234,10 @@ Pontos importantes:
 | Arquivo | Onde aparece | Observação |
 |---|---|---|
 | `henrique.jpg` (800x1200) | Hero | — |
-| `IMG_2227.JPG` (1200x1800, ~368KB) | Sobre | servida direta |
+| `henrique-sobre.webp` (1000x1500, ~100KB) | Sobre | recorte de `IMG_4094` (screenshot 1170x2532) |
+| `IMG_2227.JPG` (1200x1800, ~368KB) | Para quem é (6º box) | servida direta |
 | `IMG_2218.JPG` (1200x1800, ~330KB) | Método | **espelhada** por CSS (`.flip-h`) |
-| `para-quem.webp` (~50KB) | Para quem é (6º box) | recorte "tronco pra cima" de `IMG_2720.JPG` |
-| `IMG_2720.JPG` (2 MB) | — | **original do recorte, NÃO é servida**; pode ser removida se quiser enxugar o repo |
+| `IMG_2720.JPG` (2 MB) | — | **não é servida**; pode ser removida se quiser enxugar o repo |
 | `depoimentos/depoimento-01..19.webp` (480x1040) | Depoimentos | ~840KB no total |
 
 **Regras práticas:**
@@ -253,7 +267,7 @@ Convenções acordadas — **respeite todas** ao editar textos:
 4. **Botões** em caixa normal (só a inicial maiúscula) e com `letter-spacing`
    reduzido.
 5. **Larguras boxed** por dispositivo (1280 / 900 / 800 / 400) — não estourar.
-6. **Planos sem preço** ("valores na conversa").
+6. **Home sem preço**; os valores ficam em `/planos` (`planos.html`).
 7. Identidade visual da marca: roxo `#ba63ff` sobre fundo escuro; DM Sans.
 
 ---
@@ -270,8 +284,9 @@ Convenções acordadas — **respeite todas** ao editar textos:
 - **Trocar uma foto e reenquadrar:** otimize/recorte para WebP, atualize o `src`
   no `index.html`. Para enquadrar dentro do box, use `object-fit: cover` +
   `object-position` (evite `border-radius` na imagem dentro de `.photo-frame`, ver §11).
-- **Colocar preços nos planos:** adicione um `.plan__value` em cada `.plan`
-  (o `applyConfig` já inclui "(R$ X/mês)" na mensagem do WhatsApp quando existe).
+- **Alterar um preço:** edite o `.plan__value` (e o `.plan__cash`, o valor à
+  vista) no `planos.html`. O `applyConfig` já inclui "R$ X/mês" na mensagem do
+  WhatsApp automaticamente.
 - **Mudar cor/raio/sombra global:** variáveis no `:root`.
 
 ---
@@ -350,11 +365,12 @@ completo está no `git log`:
 
 ## 14. Pendências e próximos passos
 
-- **Preços:** hoje omitidos de propósito ("valores na conversa"). Se forem
-  exibir, ver a receita em §10.
-- **Domínio:** a página vive em `nascimentoteam.vercel.app`. Migração para
-  `ronaldox.com.br/nascimento-team` ou para o domínio do cliente está documentada
-  em `DEPLOY.md` (não exige mudança de código).
+- **Preços:** os valores vivem em `/planos` (`planos.html`) e vieram do PDF de
+  planos do cliente (commit `d7309f0`). **Confirme com o Henrique antes de
+  divulgar** — a receita de edição está em §10.
+- **Domínio:** apontar `nascimentoteam.com.br` para este projeto na Vercel
+  (DNS em propagação). O `DEPLOY.md` cobre também o cenário
+  `ronaldox.com.br/nascimento-team`. Nenhum dos dois exige mudança de código.
 - **Limpeza opcional:** remover `IMG_2720.JPG` (2 MB, não servida) e a função
   `carousel()` do `script.js` (sem uso).
 - **Fluxo Git:** avaliar merge da branch de trabalho para `main` e apontar `main`

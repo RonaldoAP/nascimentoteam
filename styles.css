@@ -86,6 +86,7 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
 }
 
 .section-head { max-width: 720px; margin-bottom: clamp(36px, 5vw, 56px); }
+.section-head h1,
 .section-head h2 { font-size: clamp(2rem, 3.6vw, 2.6rem); }
 .section-head__note { margin-top: 14px; color: var(--text-muted); font-size: 1rem; }
 
@@ -557,6 +558,13 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
 .plans__note { text-align: center; margin-top: 28px; color: var(--text-muted); font-size: 0.92rem; max-width: 760px; margin-inline: auto; }
 .plans__note a { color: var(--primary-light); font-weight: 600; white-space: nowrap; display: inline-block; margin-top: 6px; }
 .plans__note a:hover { text-decoration: underline; }
+/* botão que leva da home para a página /planos */
+.plans__cta { text-align: center; margin-top: 22px; }
+
+/* link de volta para a home, na página /planos */
+.plans__back { text-align: center; margin-top: 26px; font-size: 0.9rem; }
+.plans__back a { color: var(--text-dim); }
+.plans__back a:hover { color: var(--primary-light); text-decoration: underline; }
 
 /* Cabeçalho centralizado + alternador de tipo de plano */
 .section-head--center { max-width: 760px; margin-inline: auto; text-align: center; }
@@ -596,7 +604,9 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
 .about { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 5vw, 64px); align-items: stretch; }
 .about__media { position: relative; }
 .about__media.photo-frame { border-radius: 16px; }
-.about__media img { object-position: center 28%; }
+/* a moldura fica bem mais estreita que a foto, então o recorte é lateral:
+   o 14% mantém o Henrique enquadrado em vez de cortar pela esquerda */
+.about__media img { object-position: 14% center; }
 .about__content h2 { font-size: clamp(2rem, 3.4vw, 2.5rem); margin-bottom: 20px; }
 .about__content p { color: var(--text-muted); margin-bottom: 16px; }
 .about__content strong { color: var(--text); }
@@ -768,9 +778,30 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
     font-size: 0.92rem;
   }
 
-  /* Depoimentos: um por vez no mobile, imagem grande e legível */
-  .marquee__item { width: min(80vw, 300px); height: auto; margin-right: 12px; }
-  .marquee__track { animation-duration: 125s; }
+  /* Depoimentos no mobile: slider slide a slide com scroll-snap.
+     O marquee infinito (animação de transform num track gigante) travava em
+     celulares mais fracos, então aqui ele é desligado e quem avança é o
+     autoplay do script.js, um slide por vez. */
+  .marquee {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .marquee::-webkit-scrollbar { display: none; }
+  .marquee__track {
+    animation: none;
+    will-change: auto;
+    padding-inline: 10vw; /* deixa o 1º e o último slide centralizarem */
+  }
+  /* as cópias que só existiam para o loop infinito não são usadas no mobile */
+  .marquee__item[aria-hidden="true"] { display: none; }
+  .marquee__item {
+    width: min(80vw, 300px); height: auto; margin-right: 12px;
+    scroll-snap-align: center;
+  }
 }
 
 @media (max-width: 420px) {

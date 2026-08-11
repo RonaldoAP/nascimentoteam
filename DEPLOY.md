@@ -1,6 +1,40 @@
-# Deploy — ronaldox.com.br/nascimento-team (Vercel)
+# Deploy (Vercel)
 
-O `ronaldox.com.br` está hospedado na **Vercel**. Para servir a landing page em
+A página é estática (sem build) e vive no projeto Vercel
+**`nascimentoteam`**. Hoje ela responde em `https://nascimentoteam.vercel.app`.
+
+## Domínio próprio — nascimentoteam.com.br
+
+Este é o caminho definitivo: a **home na raiz** do domínio e os valores em
+**`/planos`**.
+
+1. No painel da Vercel, abra o projeto **`nascimentoteam`** → *Settings →
+   Domains* → **Add** → `nascimentoteam.com.br`.
+2. Adicione também `www.nascimentoteam.com.br` e deixe a Vercel redirecionar o
+   `www` para o domínio raiz (ela oferece isso na própria tela).
+3. Siga os registros de DNS que a Vercel mostrar, no painel de onde o domínio foi
+   registrado. Normalmente:
+   - raiz (`@`) → registro **A** para `76.76.21.21`;
+   - `www` → **CNAME** para `cname.vercel-dns.com`.
+   A Vercel confirma sozinha quando o DNS propagar e emite o certificado HTTPS.
+4. Confira depois de propagar:
+   - `https://nascimentoteam.com.br` → home;
+   - `https://nascimentoteam.com.br/planos` → página de planos.
+
+**Nada no código precisa mudar.** As tags `canonical`/`og:url` das duas páginas
+já apontam para `nascimentoteam.com.br`, e o `vercel.json` tem
+`"cleanUrls": true` — é ele que faz `/planos` servir o `planos.html` (e
+`/planos.html` redirecionar para `/planos`).
+
+> Para testar localmente, use `planos.html` na URL: o `cleanUrls` só existe na
+> Vercel.
+
+---
+
+## Alternativa — ronaldox.com.br/nascimento-team
+
+Só é necessário se a página for servida **dentro** do `ronaldox.com.br` em vez
+de ter domínio próprio. O `ronaldox.com.br` está hospedado na **Vercel**. Para servir a landing page em
 `/nascimento-team` **sem misturar com os arquivos do seu site**, usamos dois projetos:
 
 ```
@@ -88,7 +122,9 @@ Quando for migrar para o cliente, há dois caminhos — ambos sem mexer no códi
 
 Edite no repositório (tudo está comentado):
 
-- [ ] `script.js` → `CONFIG.whatsapp` (número real), `CONFIG.whatsappMessage`, `CONFIG.vagas`, `CONFIG.mesReferencia`
-- [ ] Foto do expert (hero) e foto do "Sobre" — trocar os blocos `.photo-placeholder` por `<img>`
-- [ ] Depoimentos reais (seção `#depoimentos`)
-- [ ] Valores dos planos (seção `#planos`) — hoje aparecem como `—`
+- [x] `script.js` → `CONFIG.whatsapp` (número real) e `CONFIG.whatsappMessage`;
+      a barra de vagas é automática pela data
+- [x] Fotos reais (hero, "Como eu trabalho", "Para quem é" e "Sobre")
+- [x] Depoimentos reais (seção `#depoimentos`)
+- [ ] **Confirmar com o Henrique os valores do `planos.html`** antes de divulgar
+- [ ] Apontar `nascimentoteam.com.br` para o projeto na Vercel

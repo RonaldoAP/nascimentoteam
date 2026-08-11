@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nascimentoteam.com.br/sitemap.xml

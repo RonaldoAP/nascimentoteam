@@ -13,11 +13,14 @@ hospedagem e em subdiretório — todos os caminhos são relativos, então roda 
 ## Estrutura
 
 ```
-index.html        → conteúdo e seções da página
+index.html        → home (conteúdo e seções da página)
+planos.html       → página /planos, com os valores de cada plano
 styles.css        → estilos (paleta + DM Sans)
 script.js         → configuração (WhatsApp/vagas) e interações
 img/           → imagens e favicon
 ```
+
+> `/planos` funciona pelo `cleanUrls` da Vercel. Localmente, abra `planos.html`.
 
 ## ✍️ O que personalizar antes de publicar
 
