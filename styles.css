@@ -562,9 +562,6 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
 .plans__cta { text-align: center; margin-top: 22px; }
 
 /* link de volta para a home, na página /planos */
-.plans__back { text-align: center; margin-top: 26px; font-size: 0.9rem; }
-.plans__back a { color: var(--text-dim); }
-.plans__back a:hover { color: var(--primary-light); text-decoration: underline; }
 
 /* Cabeçalho centralizado + alternador de tipo de plano */
 .section-head--center { max-width: 760px; margin-inline: auto; text-align: center; }
