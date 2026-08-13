@@ -567,7 +567,7 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
 .plan-switch {
   position: relative;
   display: flex; width: fit-content; max-width: 100%; gap: 4px; padding: 5px;
-  margin: 0 auto clamp(28px, 4vw, 40px);
+  margin: 0 auto clamp(44px, 6vw, 64px);
   background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
 }
 .plan-switch__thumb {
@@ -735,8 +735,13 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
   .timeline-intro { position: static; }
   .audience { grid-template-columns: 1fr 1fr; }
   .metodo-wrap { grid-template-columns: 1fr; }
-  .metodo-aside { position: static; }
-  .metodo-photo { max-height: 46vh; margin-top: 4px; }
+  /* Numa coluna, o aside deixa de ser caixa: o título, os cards e a foto
+     viram itens do próprio grid, o que permite reordená-los. A foto vai
+     para o fim e ocupa a largura toda, igual aos cards. */
+  .metodo-aside { display: contents; }
+  .metodo-wrap .section-head { order: 1; margin-bottom: 0; }
+  .metodo-wrap .pillars { order: 2; }
+  .metodo-photo { order: 3; max-height: none; width: 100%; margin-top: 4px; }
   .carousel__track { grid-auto-columns: calc(50% - 10px); }
 }
 
