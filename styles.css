@@ -559,7 +559,6 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
 .plans__note a { color: var(--primary-light); font-weight: 600; white-space: nowrap; display: inline-block; margin-top: 6px; }
 .plans__note a:hover { text-decoration: underline; }
 /* botão que leva da home para a página /planos */
-.plans__cta { text-align: center; margin-top: 22px; }
 
 /* link de volta para a home, na página /planos */
 
