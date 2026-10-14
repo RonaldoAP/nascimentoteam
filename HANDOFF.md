@@ -295,6 +295,14 @@ Convenções acordadas — **respeite todas** ao editar textos:
 
 ## 11. Armadilhas conhecidas (leia antes de mexer)
 
+0. **Os cards de plano existem em DOIS arquivos.** A lista de itens
+   (`is-in` / `is-out`) aparece no `index.html` (seção `#planos`, sem preço)
+   e no `planos.html` (com preço). Ao incluir ou remover um item de um plano,
+   **altere os dois** — e lembre que cada arquivo tem o trimestral repetido
+   nas duas abas ("Dieta ou Treino" e "Dieta + Treino completo"), ou seja,
+   são quatro lugares por item. Já aconteceu de só o `planos.html` ser
+   corrigido e a home continuar mostrando o item riscado.
+
 1. **Sticky x overflow:** os pilares e o aside do "Como eu trabalho" usam
    `position: sticky`. Isso **quebra** se algum ancestral tiver `overflow: hidden`.
    Por isso o `body` usa **`overflow-x: clip`**. Não troque por `hidden`.
