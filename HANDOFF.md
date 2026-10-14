@@ -267,7 +267,9 @@ Convenções acordadas — **respeite todas** ao editar textos:
 4. **Botões** em caixa normal (só a inicial maiúscula) e com `letter-spacing`
    reduzido.
 5. **Larguras boxed** por dispositivo (1280 / 900 / 800 / 400) — não estourar.
-6. **Home sem preço**; os valores ficam em `/planos` (`planos.html`).
+6. **Home sem preço, sempre.** Nenhum valor aparece no `index.html`: os
+   preços ficam só em `/planos` (`planos.html`). Vale também para qualquer
+   reformulação futura da seção de planos da home.
 7. Identidade visual da marca: roxo `#ba63ff` sobre fundo escuro; DM Sans.
 
 ---

@@ -69,8 +69,10 @@
 
 /* --- Cards de plano: itens só positivos --------------------------- */
 /* Resumo do PLUS dentro do card do semestral */
+/* O botão do card tem margin-top:auto, então sem a margem de baixo este
+   bloco encosta nele. 26px é a mesma folga que a .plan__list usa. */
 .plan__plus {
-  margin-top: 14px; padding: 14px 16px; border-radius: 14px;
+  margin: 2px 0 26px; padding: 14px 16px; border-radius: 14px;
   border: 1px dashed rgba(186, 99, 255, 0.45);
   background: rgba(186, 99, 255, 0.08);
   font-size: 0.86rem; color: var(--text-dim);
