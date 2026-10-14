@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[TESTE] Estrutura nova | Nascimento Team</title>
+  <meta name="description" content="Página de teste da estrutura nova: o que você recebe, Nascimento Team PLUS e os cards de plano." />
+  <meta name="theme-color" content="#0e0e0e" />
+
+  <!-- Página de teste: fora do site. Não deve ser indexada nem divulgada. -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="icon" href="./img/favicon.svg" type="image/svg+xml" />
+
+  <!-- Tipografia: DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <!-- O CSS do site, sem alteração + um arquivo só com o que é novo -->
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./teste.css" />
+</head>
+<body>
+
+  <p class="teste-flag">
+    <b>Página de teste.</b> Serve para avaliar a estrutura nova. A home e a /planos continuam como estão.
+  </p>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container site-header__inner">
+      <a href="./" class="brand" aria-label="Nascimento Team, início">
+        <span class="brand__mark" aria-hidden="true">NT</span>
+        <span class="brand__name">Nascimento<span>Team</span></span>
+      </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Navegação principal">
+        <a href="#recebe">O que você recebe</a>
+        <a href="#plus">PLUS</a>
+        <a href="#planos">Planos</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primaryNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="topo">
+
+    <!-- =========================================================== -->
+    <!-- 1. O QUE VOCÊ RECEBE — os entregáveis, antes de falar preço  -->
+    <!-- =========================================================== -->
+    <section class="section section--alt" id="recebe">
+      <div class="container">
+        <header class="section-head section-head--center reveal">
+          <span class="eyebrow">O que está incluso</span>
+          <h2>O que você recebe</h2>
+          <p class="section-head__note">O acompanhamento é o mesmo em todos os planos. O que muda, mais à frente, é o tempo e o nível de suporte.</p>
+        </header>
+
+        <div class="features">
+          <article class="feature reveal">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"/><path d="M14 13.12c0 2.38 0 6.38-1 8.88"/><path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"/><path d="M2 12a10 10 0 0 1 18-6"/><path d="M2 16h.01"/><path d="M21.8 16c.2-2 .131-5.354 0-6"/><path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"/><path d="M8.65 22c.21-.66.45-1.32.57-2"/><path d="M9 6.8a6 6 0 0 1 9 5.2v2"/></svg></span>
+            <h3>Planejamento 100% individualizado</h3>
+            <p>Construído a partir da sua rotina, histórico, preferências e nível atual. Nada de plano padrão.</p>
+          </article>
+
+          <article class="feature reveal">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"/><path d="M19.5 10.5c0 4.5-6 10-7.5 10s-7.5-5.5-7.5-10a7.5 7.5 0 1 1 15 0Z"/></svg></span>
+            <h3>Chamada inicial de alinhamento</h3>
+            <p>Uma conversa no começo para entender seu contexto e alinhar expectativas antes de montar o plano.</p>
+          </article>
+
+          <article class="feature reveal">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/> <path d="M7 2v20"/> <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg></span>
+            <h3>Plano alimentar ajustado à rotina</h3>
+            <p>Com opções de substituição para os dias que saem do roteiro.</p>
+          </article>
+
+          <article class="feature reveal">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z"/> <path d="m2.5 21.5 1.4-1.4"/> <path d="m20.1 3.9 1.4-1.4"/> <path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z"/> <path d="m9.6 14.4 4.8-4.8"/></svg></span>
+            <h3>Treinamento personalizado</h3>
+            <p>Montado para a estrutura que você tem acesso, do equipamento ao tempo disponível.</p>
+          </article>
+
+          <article class="feature reveal">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 5h8"/> <path d="M13 12h8"/> <path d="M13 19h8"/> <path d="m3 17 2 2 4-4"/> <path d="m3 7 2 2 4-4"/></svg></span>
+            <h3>Feedbacks e ajustes periódicos</h3>
+            <p>A rota é corrigida conforme seu corpo e sua vida respondem, não a cada seis meses.</p>
+          </article>
+
+          <article class="feature reveal">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l5-3v10l-5-3v-4Z"/><rect x="2" y="6" width="13" height="12" rx="2"/></svg></span>
+            <h3>Chamadas de acompanhamento</h3>
+            <p>Conversas ao longo do plano para revisar o que está funcionando e o que precisa mudar.</p>
+          </article>
+
+          <article class="feature reveal">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg></span>
+            <h3>Suporte direto pelo WhatsApp</h3>
+            <p>Canal aberto comigo para dúvidas que aparecem no meio do caminho.</p>
+          </article>
+
+          <article class="feature reveal">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/> <path d="m8.5 8.5 7 7"/></svg></span>
+            <h3>Correções e orientações de treino</h3>
+            <p>Análise da execução dos exercícios para você treinar com segurança e render mais.</p>
+          </article>
+
+          <article class="feature reveal">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/> <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span>
+            <h3>Materiais de apoio</h3>
+            <p>Conteúdos de execução e de organização alimentar para você ganhar autonomia.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================== -->
+    <!-- 2. NASCIMENTO TEAM PLUS — exclusivo do semestral             -->
+    <!-- =========================================================== -->
+    <section class="section plus" id="plus">
+      <div class="plus__glow" aria-hidden="true"></div>
+      <div class="container">
+        <header class="section-head section-head--center reveal">
+          <span class="plus__eyebrow">Exclusivo do plano semestral</span>
+          <h2 class="plus__title">Nascimento Team <span>PLUS</span></h2>
+          <p class="plus__sub">Benefícios que só os alunos do semestral recebem, somados a tudo que já está no acompanhamento.</p>
+        </header>
+
+        <div class="plus-grid reveal">
+          <article class="plus-item">
+            <span class="plus-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+            <h3>Kit de Ferramentas Nascimento Team</h3>
+            <p>Mapa de hábitos, trackers, planners, checklists, controle de evolução e materiais de organização alimentar.</p>
+          </article>
+
+          <article class="plus-item">
+            <span class="plus-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span>
+            <h3>Biblioteca de Guias e Materiais</h3>
+            <p>Alimentação fora de casa, viagens, finais de semana, suplementação, organização da rotina e outros temas.</p>
+          </article>
+
+          <article class="plus-item">
+            <span class="plus-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m19 9-5 5-4-4-3 3"/></svg></span>
+            <h3>Raio-X de Evolução aos 90 dias</h3>
+            <p>Uma revisão mais ampla da evolução, adesão, dieta e treino para definir a estratégia dos três meses seguintes.</p>
+          </article>
+
+          <article class="plus-item">
+            <span class="plus-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg></span>
+            <h3>Pausa de até 15 dias</h3>
+            <p>Em caso de viagem, doença ou outro imprevisto relevante, o acompanhamento pode ser pausado.</p>
+          </article>
+
+          <article class="plus-item plus-item--wide">
+            <span class="plus-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+            <h3>Condição especial de renovação</h3>
+            <p>Quem conclui o semestral tem acesso a uma condição exclusiva para seguir no acompanhamento.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================== -->
+    <!-- 3. PLANOS — cards limpos, só com o que está incluso          -->
+    <!-- =========================================================== -->
+    <section class="section section--alt" id="planos">
+      <div class="container">
+        <header class="section-head section-head--center reveal">
+          <span class="eyebrow">Planos</span>
+          <h2>Escolha qual caminho faz sentido pra você</h2>
+          <p class="section-head__note">O método é o mesmo em todos os planos. O que muda é o tempo de acompanhamento, a frequência de ajustes e o nível de suporte. Sem fidelidade.</p>
+        </header>
+
+        <div class="plan-switch reveal" role="tablist" aria-label="Tipo de acompanhamento">
+          <span class="plan-switch__thumb" aria-hidden="true"></span>
+          <button class="plan-switch__btn is-active" type="button" role="tab" aria-selected="true" data-plan-tab="individual">Dieta ou Treino</button>
+          <button class="plan-switch__btn" type="button" role="tab" aria-selected="false" data-plan-tab="completo">Dieta + Treino <span>completo</span></button>
+        </div>
+
+        <!-- Grupo: Dieta OU Treino -->
+        <div data-plan-group="individual">
+          <div class="plans">
+            <article class="plan">
+              <h3 class="plan__name">Mensal</h3>
+              <p class="plan__tagline">Plano de entrada, para sentir o método de perto.</p>
+              <div class="plan__price"><span class="plan__currency">R$</span><span class="plan__value">400</span><span class="plan__period">/mês</span></div>
+              <ul class="plan__list">
+                <li class="is-in">Formulário de anamnese completo</li>
+                <li class="is-in">Planejamento individualizado</li>
+                <li class="is-in">1 feedback e ajuste</li>
+              </ul>
+              <a href="#contato" class="btn btn--ghost btn--block" data-wa>Entrar em contato</a>
+            </article>
+
+            <article class="plan">
+              <h3 class="plan__name">Trimestral</h3>
+              <p class="plan__tagline">O acompanhamento completo, com tempo para ver mudança real.</p>
+              <div class="plan__price"><span class="plan__currency">R$</span><span class="plan__value">295</span><span class="plan__period">/mês</span></div>
+              <p class="plan__cash">ou R$ 885 à vista</p>
+              <ul class="plan__list">
+                <li class="is-in">Chamada inicial de alinhamento</li>
+                <li class="is-in">Planejamento individualizado</li>
+                <li class="is-in">Feedbacks e ajustes mensais</li>
+                <li class="is-in">Chamadas mensais de revisão</li>
+                <li class="is-in">Suporte direto pelo WhatsApp</li>
+                <li class="is-in">Correções e orientações de treino</li>
+              </ul>
+              <a href="#contato" class="btn btn--ghost btn--block" data-wa>Entrar em contato</a>
+            </article>
+
+            <article class="plan plan--featured">
+              <span class="plan__badge">Mais vantajoso</span>
+              <h3 class="plan__name">Semestral</h3>
+              <p class="plan__tagline">Tudo do trimestral, mais os benefícios exclusivos.</p>
+              <div class="plan__price"><span class="plan__currency">R$</span><span class="plan__value">270</span><span class="plan__period">/mês</span></div>
+              <p class="plan__cash">ou R$ 1.620 à vista</p>
+              <span class="plan__best">Menor investimento mensal entre os planos.</span>
+              <ul class="plan__list">
+                <li class="is-in">Tudo do Trimestral</li>
+                <li class="is-in is-plus">Nascimento Team PLUS</li>
+              </ul>
+              <p class="plan__plus">
+                <b>No PLUS entram:</b>
+                Kit de Ferramentas + Biblioteca de Guias + Raio-X de 90 dias + pausa de 15 dias + condição especial de renovação.
+              </p>
+              <a href="#contato" class="btn btn--primary btn--block" data-wa>Entrar em contato</a>
+            </article>
+          </div>
+        </div>
+
+        <!-- Grupo: Dieta E Treino (completo) -->
+        <div data-plan-group="completo" class="is-hidden">
+          <p class="plans__intro">Dieta e treino não se separam. Para os <strong>melhores resultados possíveis</strong>, o ideal é ter alguém controlando todas as variáveis de forma precisa e sinérgica, com nutrição e treinamento alinhados.</p>
+          <div class="plans plans--2">
+            <article class="plan">
+              <h3 class="plan__name">Trimestral</h3>
+              <p class="plan__tagline">Dieta + treino, com acompanhamento completo de 3 meses.</p>
+              <div class="plan__price"><span class="plan__currency">R$</span><span class="plan__value">515</span><span class="plan__period">/mês</span></div>
+              <p class="plan__cash">ou R$ 1.545 à vista</p>
+              <ul class="plan__list">
+                <li class="is-in">Chamada inicial de alinhamento</li>
+                <li class="is-in">Planejamento individualizado</li>
+                <li class="is-in">Feedbacks e ajustes mensais</li>
+                <li class="is-in">Chamadas mensais de revisão</li>
+                <li class="is-in">Suporte direto pelo WhatsApp</li>
+                <li class="is-in">Correções e orientações de treino</li>
+              </ul>
+              <a href="#contato" class="btn btn--ghost btn--block" data-wa>Entrar em contato</a>
+            </article>
+
+            <article class="plan plan--featured">
+              <span class="plan__badge">Mais vantajoso</span>
+              <h3 class="plan__name">Semestral</h3>
+              <p class="plan__tagline">Tudo do trimestral, mais os benefícios exclusivos.</p>
+              <div class="plan__price"><span class="plan__currency">R$</span><span class="plan__value">450</span><span class="plan__period">/mês</span></div>
+              <p class="plan__cash">ou R$ 2.700 à vista</p>
+              <span class="plan__best">Menor investimento mensal entre os planos.</span>
+              <ul class="plan__list">
+                <li class="is-in">Tudo do Trimestral</li>
+                <li class="is-in is-plus">Nascimento Team PLUS</li>
+              </ul>
+              <p class="plan__plus">
+                <b>No PLUS entram:</b>
+                Kit de Ferramentas + Biblioteca de Guias + Raio-X de 90 dias + pausa de 15 dias + condição especial de renovação.
+              </p>
+              <a href="#contato" class="btn btn--primary btn--block" data-wa>Entrar em contato</a>
+            </article>
+          </div>
+        </div>
+
+        <p class="plans__note">Parcelamento disponível, com incidência de juros conforme o número de parcelas. Os planos acima são referentes ao acompanhamento de dieta <em>ou</em> treino; a opção <em>completa</em> contempla dieta <em>e</em> treino.<br><a href="#contato" class="wa-inline" data-wa>Fale comigo no WhatsApp</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>Página de teste — Nascimento Team &copy; <span data-year></span></p>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>

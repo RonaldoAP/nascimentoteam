@@ -1,0 +1,89 @@
+/* =================================================================
+   teste.css — estilos SÓ da página de teste (teste.html).
+
+   Nada aqui afeta a home ou a /planos: este arquivo é carregado
+   apenas por teste.html, depois do styles.css. Se a estrutura for
+   aprovada, estas regras migram para o styles.css.
+   ================================================================= */
+
+/* --- Faixa de aviso: deixa claro que é uma página de teste -------- */
+.teste-flag {
+  position: relative; z-index: 60;
+  background: repeating-linear-gradient(135deg, #2a1c05, #2a1c05 10px, #241806 10px, #241806 20px);
+  border-bottom: 1px solid rgba(255, 196, 70, 0.35);
+  color: #ffd98a; text-align: center; font-size: 0.82rem; padding: 9px 16px;
+}
+.teste-flag b { color: #fff; }
+
+/* --- Seção Nascimento Team PLUS ---------------------------------- */
+.plus {
+  position: relative; overflow: hidden;
+  border-top: 1px solid rgba(186, 99, 255, 0.28);
+  border-bottom: 1px solid rgba(186, 99, 255, 0.28);
+  background:
+    radial-gradient(90% 120% at 50% 0%, rgba(186, 99, 255, 0.18), transparent 60%),
+    linear-gradient(170deg, #141018, var(--surface));
+}
+.plus__glow {
+  position: absolute; inset: -30% 20% auto; height: 60%;
+  background: radial-gradient(closest-side, rgba(186, 99, 255, 0.3), transparent);
+  filter: blur(40px); pointer-events: none;
+}
+.plus .section-head { position: relative; }
+.plus__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 999px;
+  border: 1px solid rgba(186, 99, 255, 0.5);
+  background: rgba(186, 99, 255, 0.12);
+  color: var(--primary-light); font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+}
+.plus__title { margin: 16px 0 10px; }
+.plus__title span { color: var(--primary-light); }
+.plus__sub { color: var(--text-dim); max-width: 620px; margin-inline: auto; }
+
+.plus-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px;
+  margin-top: clamp(28px, 4vw, 44px);
+}
+.plus-item {
+  position: relative; padding: clamp(22px, 2.6vw, 30px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(186, 99, 255, 0.3);
+  background: linear-gradient(165deg, rgba(32, 22, 42, 0.9), var(--surface));
+}
+.plus-item__icon {
+  display: inline-grid; place-content: center; width: 42px; height: 42px;
+  border-radius: 12px; margin-bottom: 14px;
+  background: rgba(186, 99, 255, 0.14);
+  border: 1px solid rgba(186, 99, 255, 0.4);
+  color: var(--primary-light);
+}
+.plus-item h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.plus-item p { color: var(--text-dim); font-size: 0.93rem; }
+
+/* O último item ocupa a linha inteira quando sobra sozinho */
+.plus-item--wide { grid-column: 1 / -1; }
+
+/* --- Cards de plano: itens só positivos --------------------------- */
+/* Resumo do PLUS dentro do card do semestral */
+.plan__plus {
+  margin-top: 14px; padding: 14px 16px; border-radius: 14px;
+  border: 1px dashed rgba(186, 99, 255, 0.45);
+  background: rgba(186, 99, 255, 0.08);
+  font-size: 0.86rem; color: var(--text-dim);
+}
+.plan__plus b { color: var(--primary-light); display: block; margin-bottom: 4px; }
+
+/* Selo "menor investimento mensal", logo abaixo do preço */
+.plan__best {
+  display: inline-block; margin-top: 2px;
+  font-size: 0.78rem; font-weight: 600; color: var(--primary-light);
+}
+
+/* Item do card que aponta para o bloco PLUS */
+.plan__list li.is-plus { color: var(--primary-light); font-weight: 600; }
+
+@media (max-width: 767px) {
+  .plus-grid { grid-template-columns: 1fr; }
+}
