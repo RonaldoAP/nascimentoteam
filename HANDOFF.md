@@ -270,7 +270,11 @@ Convenções acordadas — **respeite todas** ao editar textos:
 6. **Home sem preço, sempre.** Nenhum valor aparece no `index.html`: os
    preços ficam só em `/planos` (`planos.html`). Vale também para qualquer
    reformulação futura da seção de planos da home.
-7. Identidade visual da marca: roxo `#ba63ff` sobre fundo escuro; DM Sans.
+7. **A `/planos` é enviada por link direto, não é descoberta.** Por decisão
+   do cliente, a home **não tem nenhum link** para ela, a página leva
+   `noindex` e ficou fora do `sitemap.xml`. Ao mexer em qualquer uma das
+   três coisas, mantenha as outras duas coerentes.
+8. Identidade visual da marca: roxo `#ba63ff` sobre fundo escuro; DM Sans.
 
 ---
 
