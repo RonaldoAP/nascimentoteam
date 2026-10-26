@@ -42,16 +42,38 @@
 .plus__title span { color: var(--primary-light); }
 .plus__sub { color: var(--text-dim); max-width: 620px; margin-inline: auto; }
 
-/* Grade de 6 colunas: 3 boxes em cima (2 colunas cada) e 2 embaixo
-   (3 colunas cada), de modo que as duas linhas fiquem cheias. */
-.plus-grid {
-  display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px;
+/* Destaque do principal benefício: a área exclusiva, acima dos demais */
+.plus-hero {
+  position: relative;
   margin-top: clamp(28px, 4vw, 44px);
+  padding: clamp(24px, 3vw, 34px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(186, 99, 255, 0.55);
+  background: linear-gradient(165deg, rgba(44, 28, 60, 0.95), rgba(26, 18, 34, 0.95));
+  box-shadow: var(--shadow), 0 0 44px -16px rgba(186, 99, 255, 0.55);
 }
-.plus-item:nth-child(4),
-.plus-item:nth-child(5) { grid-column: span 3; }
+.plus-hero__tag { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.plus-hero__tag .plus-item__icon { margin-bottom: 0; }
+.plus-hero__label {
+  color: var(--primary-light); font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+}
+.plus-hero h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); margin-bottom: 10px; }
+.plus-hero p { color: var(--text-muted); max-width: 70ch; }
+.plus-hero__chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; list-style: none; }
+.plus-hero__chips li {
+  padding: 6px 14px; border-radius: 999px;
+  border: 1px solid rgba(186, 99, 255, 0.35);
+  background: rgba(186, 99, 255, 0.1);
+  color: var(--text-soft); font-size: 0.82rem;
+}
+
+/* Os quatro benefícios restantes, duas colunas */
+.plus-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px;
+  margin-top: 18px;
+}
 .plus-item {
-  grid-column: span 2;
   position: relative; padding: clamp(22px, 2.6vw, 30px);
   border-radius: var(--radius-lg);
   border: 1px solid rgba(186, 99, 255, 0.3);
@@ -88,14 +110,7 @@
 /* Item do card que aponta para o bloco PLUS */
 .plan__list li.is-plus { color: var(--primary-light); font-weight: 600; }
 
-/* Tablet: duas por linha. Celular: uma por linha. */
-@media (max-width: 1023px) {
-  .plus-item,
-  .plus-item:nth-child(4),
-  .plus-item:nth-child(5) { grid-column: span 3; }
-}
+/* Celular: um benefício por linha. */
 @media (max-width: 767px) {
-  .plus-item,
-  .plus-item:nth-child(4),
-  .plus-item:nth-child(5) { grid-column: 1 / -1; }
+  .plus-grid { grid-template-columns: 1fr; }
 }
