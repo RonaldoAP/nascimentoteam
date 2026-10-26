@@ -595,6 +595,103 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
 .is-hidden { display: none !important; }
 
 /* ============================================================= */
+/* NASCIMENTO TEAM PLUS                                          */
+/* ============================================================= */
+.plus {
+  position: relative; overflow: hidden;
+  border-top: 1px solid rgba(186, 99, 255, 0.28);
+  border-bottom: 1px solid rgba(186, 99, 255, 0.28);
+  background:
+    radial-gradient(90% 120% at 50% 0%, rgba(186, 99, 255, 0.18), transparent 60%),
+    linear-gradient(170deg, #141018, var(--surface));
+}
+.plus__glow {
+  position: absolute; inset: -30% 20% auto; height: 60%;
+  background: radial-gradient(closest-side, rgba(186, 99, 255, 0.3), transparent);
+  filter: blur(40px); pointer-events: none;
+}
+.plus .section-head { position: relative; }
+.plus__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 999px;
+  border: 1px solid rgba(186, 99, 255, 0.5);
+  background: rgba(186, 99, 255, 0.12);
+  color: var(--primary-light); font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+}
+.plus__title { margin: 16px 0 10px; }
+.plus__title span { color: var(--primary-light); }
+.plus__sub { color: var(--text-dim); max-width: 620px; margin-inline: auto; }
+
+/* Destaque do principal benefício: a área exclusiva, acima dos demais */
+.plus-hero {
+  position: relative;
+  margin-top: clamp(28px, 4vw, 44px);
+  padding: clamp(24px, 3vw, 34px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(186, 99, 255, 0.55);
+  background: linear-gradient(165deg, rgba(44, 28, 60, 0.95), rgba(26, 18, 34, 0.95));
+  box-shadow: var(--shadow), 0 0 44px -16px rgba(186, 99, 255, 0.55);
+}
+.plus-hero__tag { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.plus-hero__tag .plus-item__icon { margin-bottom: 0; }
+.plus-hero__label {
+  color: var(--primary-light); font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+}
+.plus-hero h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); margin-bottom: 10px; }
+.plus-hero p { color: var(--text-muted); max-width: 70ch; }
+.plus-hero__chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; list-style: none; }
+.plus-hero__chips li {
+  padding: 6px 14px; border-radius: 999px;
+  border: 1px solid rgba(186, 99, 255, 0.35);
+  background: rgba(186, 99, 255, 0.1);
+  color: var(--text-soft); font-size: 0.82rem;
+}
+
+/* Os quatro benefícios restantes, duas colunas */
+.plus-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px;
+  margin-top: 18px;
+}
+.plus-item {
+  position: relative; padding: clamp(22px, 2.6vw, 30px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(186, 99, 255, 0.3);
+  background: linear-gradient(165deg, rgba(32, 22, 42, 0.9), var(--surface));
+}
+.plus-item__icon {
+  display: inline-grid; place-content: center; width: 42px; height: 42px;
+  border-radius: 12px; margin-bottom: 14px;
+  background: rgba(186, 99, 255, 0.14);
+  border: 1px solid rgba(186, 99, 255, 0.4);
+  color: var(--primary-light);
+}
+.plus-item h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.plus-item p { color: var(--text-dim); font-size: 0.93rem; }
+
+/* --- Cards de plano: itens só positivos --------------------------- */
+/* Resumo do PLUS dentro do card do semestral */
+/* O botão do card tem margin-top:auto, então sem a margem de baixo este
+   bloco encosta nele. 26px é a mesma folga que a .plan__list usa. */
+.plan__plus {
+  margin: 2px 0 26px; padding: 14px 16px; border-radius: 14px;
+  border: 1px dashed rgba(186, 99, 255, 0.45);
+  background: rgba(186, 99, 255, 0.08);
+  font-size: 0.86rem; color: var(--text-dim);
+}
+.plan__plus b { color: var(--primary-light); display: block; margin-bottom: 4px; }
+
+/* Selo "menor investimento mensal", logo abaixo do preço */
+.plan__best {
+  display: inline-block; margin-top: 2px;
+  font-size: 0.78rem; font-weight: 600; color: var(--primary-light);
+}
+
+/* Item do card que aponta para o bloco PLUS */
+.plan__list li.is-plus { color: var(--primary-light); font-weight: 600; }
+
+/* ============================================================= */
 /* SOBRE                                                         */
 /* ============================================================= */
 .about { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 5vw, 64px); align-items: stretch; }
@@ -746,6 +843,8 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
 }
 
 @media (max-width: 767px) {
+  /* PLUS: um benefício por linha */
+  .plus-grid { grid-template-columns: 1fr; }
   /* Header mobile: logo + menu hambúrguer (sem botão de WhatsApp) */
   .scarcity-bar__dot { display: none; }
   .site-header__inner { gap: 10px; }
