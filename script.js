@@ -80,16 +80,27 @@ function textoEscassez(date = new Date()) {
   const waLink = (msg) => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
 
   document.querySelectorAll('[data-wa]').forEach((el) => {
-    // Botões de plano levam uma mensagem personalizada (nome/tipo/valor do plano).
+    // Botões de plano levam uma mensagem personalizada. Os valores vêm dos
+    // data-attributes do card (data-plan-total / -month / -duration), que a
+    // /planos preenche; na home, onde não há preço, a mensagem sai só com o
+    // nome e o tipo do plano.
     let msg = CONFIG.whatsappMessage;
     const plan = el.closest('.plan');
     if (plan) {
       const nome = (plan.querySelector('.plan__name')?.textContent || '').trim();
       const grupo = plan.closest('[data-plan-group]')?.dataset.planGroup;
       const tipo = grupo === 'completo' ? 'Dieta + Treino (completo)' : 'Dieta ou Treino';
-      const valor = (plan.querySelector('.plan__value')?.textContent || '').trim();
-      msg = `Olá, Henrique! Vim pelo seu site e tenho interesse no Plano ${nome} (${tipo})` +
-            (valor ? `, R$ ${valor}/mês` : '') + '. Pode me passar mais detalhes?';
+      const { planTotal, planMonth, planDuration } = plan.dataset;
+
+      let detalhe = '';
+      if (planTotal) {
+        detalhe = `, ${planTotal}`;
+        if (planDuration) detalhe += ` (${planDuration}`;
+        if (planMonth) detalhe += `${planDuration ? ', ' : ' ('}equivalente a ${planMonth}/mês`;
+        if (planDuration || planMonth) detalhe += ')';
+      }
+
+      msg = `Olá, Henrique! Vim pelo seu site e tenho interesse no Plano ${nome} (${tipo})${detalhe}. Pode me passar mais detalhes?`;
     }
     el.setAttribute('href', waLink(msg));
     el.setAttribute('target', '_blank');
