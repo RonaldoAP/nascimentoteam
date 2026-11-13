@@ -668,13 +668,15 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
 /* Faixa de pagamento e parcelamento, dividida ao meio */
 .pay-bar {
   display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 40px);
+  align-items: center;
   margin-top: 18px; padding: clamp(20px, 2.4vw, 26px) clamp(22px, 3vw, 34px);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border); background: var(--surface);
 }
-.pay-bar__item { display: flex; align-items: flex-start; gap: 16px; }
+.pay-bar__item { display: flex; align-items: center; gap: 16px; }
 .pay-bar__item + .pay-bar__item {
   padding-left: clamp(20px, 3vw, 40px); border-left: 1px solid var(--border-strong);
+  align-self: stretch;
 }
 .pay-bar__icon {
   display: inline-grid; place-content: center; width: 44px; height: 44px; flex-shrink: 0;
@@ -702,7 +704,7 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
 }
 .cta-row h2 { font-size: clamp(1.4rem, 2.6vw, 2rem); margin-bottom: 8px; }
 .cta-row p { color: var(--text-muted); font-size: 0.97rem; max-width: 60ch; }
-.cta-row__btn { white-space: normal; text-align: left; max-width: 280px; }
+.cta-row__btn { white-space: nowrap; }
 
 /* ============================================================= */
 /* NASCIMENTO TEAM PLUS                                          */
@@ -961,7 +963,7 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
   .pay-bar { grid-template-columns: 1fr; gap: 18px; }
   .pay-bar__item + .pay-bar__item { padding-left: 0; border-left: none; padding-top: 18px; border-top: 1px solid var(--border-strong); }
   .cta-row { grid-template-columns: 1fr; text-align: center; justify-items: center; }
-  .cta-row__btn { max-width: 100%; width: 100%; text-align: center; justify-content: center; }
+  .cta-row__btn { width: 100%; justify-content: center; white-space: normal; }
   .cta-row p { margin-inline: auto; }
   /* O selo do semestral cabe melhor em duas linhas */
   .plan__equiv--best b { display: block; }
