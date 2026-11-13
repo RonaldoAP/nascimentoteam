@@ -617,24 +617,92 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
 .is-hidden { display: none !important; }
 
 /* ============================================================= */
-/* PAGAMENTO E PARCELAMENTO (/planos)                            */
+/* /PLANOS — topo, faixa do PLUS, pagamento e CTA em linha        */
 /* ============================================================= */
-.pay-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-.pay-item {
-  display: flex; gap: 16px; align-items: flex-start;
-  padding: clamp(20px, 2.4vw, 26px);
+/* Brilho diagonal no canto superior esquerdo, como na referência */
+.planos-top { position: relative; overflow: hidden; padding-top: clamp(40px, 6vw, 72px); }
+.planos-top__glow {
+  position: absolute; top: -20%; left: -10%; width: 60%; height: 90%;
+  background: linear-gradient(145deg, rgba(186, 99, 255, 0.5), rgba(186, 99, 255, 0) 60%);
+  filter: blur(90px); pointer-events: none; z-index: 0;
+}
+.planos-top > .container { position: relative; z-index: 1; }
+
+/* Chip do item "Nascimento Team PLUS" dentro do card */
+.plan__list li.is-plus { padding-left: 0; }
+.plan__list li.is-plus::before { content: none; }
+.plan__plus-chip {
+  display: inline-flex; align-items: center; gap: 8px; width: 100%;
+  padding: 8px 14px; border-radius: 10px;
+  border: 1px solid rgba(186, 99, 255, 0.45);
+  background: rgba(186, 99, 255, 0.12);
+  color: var(--primary-light); font-weight: 600; font-size: 0.92rem;
+}
+.plan__plus-chip svg { flex-shrink: 0; }
+
+/* Faixa do Nascimento Team PLUS, logo abaixo dos cards */
+.plus-bar {
+  display: grid; grid-template-columns: minmax(230px, 0.8fr) 1fr; align-items: center;
+  gap: clamp(20px, 3vw, 40px);
+  margin-top: 22px; padding: clamp(20px, 2.4vw, 28px) clamp(22px, 3vw, 34px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(186, 99, 255, 0.35);
+  background: linear-gradient(120deg, rgba(50, 30, 70, 0.9), rgba(26, 18, 34, 0.9));
+}
+.plus-bar__id { display: flex; align-items: center; gap: 16px; }
+.plus-bar__icon {
+  display: inline-grid; place-content: center; width: 48px; height: 48px; flex-shrink: 0;
+  border-radius: 12px; color: var(--primary-light);
+  border: 1px solid rgba(186, 99, 255, 0.5); background: rgba(186, 99, 255, 0.16);
+}
+.plus-bar h2 { font-size: clamp(1.1rem, 1.8vw, 1.35rem); margin-bottom: 2px; }
+.plus-bar__tag {
+  color: var(--primary-light); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+}
+.plus-bar__text {
+  color: var(--text-muted); font-size: 0.93rem;
+  padding-left: clamp(20px, 3vw, 40px); border-left: 1px solid rgba(186, 99, 255, 0.3);
+}
+
+/* Faixa de pagamento e parcelamento, dividida ao meio */
+.pay-bar {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 40px);
+  margin-top: 18px; padding: clamp(20px, 2.4vw, 26px) clamp(22px, 3vw, 34px);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border); background: var(--surface);
 }
-.pay-item__icon {
-  display: inline-grid; place-content: center; width: 42px; height: 42px; flex-shrink: 0;
-  border-radius: 12px;
-  background: rgba(186, 99, 255, 0.14);
-  border: 1px solid rgba(186, 99, 255, 0.4);
-  color: var(--primary-light);
+.pay-bar__item { display: flex; align-items: flex-start; gap: 16px; }
+.pay-bar__item + .pay-bar__item {
+  padding-left: clamp(20px, 3vw, 40px); border-left: 1px solid var(--border-strong);
 }
-.pay-item h3 { font-size: 1.05rem; margin-bottom: 6px; }
-.pay-item p { color: var(--text-dim); font-size: 0.92rem; }
+.pay-bar__icon {
+  display: inline-grid; place-content: center; width: 44px; height: 44px; flex-shrink: 0;
+  border-radius: 12px; color: var(--primary-light);
+  border: 1px solid rgba(186, 99, 255, 0.4); background: rgba(186, 99, 255, 0.14);
+}
+.pay-bar h3 { font-size: 1.02rem; margin-bottom: 4px; }
+.pay-bar p { color: var(--text-dim); font-size: 0.9rem; }
+
+/* CTA final em linha: ícone, texto e botão */
+.cta-final { padding-bottom: clamp(60px, 8vw, 100px); }
+.cta-row {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center;
+  gap: clamp(20px, 3vw, 36px);
+  padding: clamp(26px, 3.4vw, 40px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(186, 99, 255, 0.4);
+  background: linear-gradient(120deg, rgba(52, 30, 74, 0.92), rgba(24, 16, 32, 0.92));
+  box-shadow: var(--shadow), 0 0 50px -18px rgba(186, 99, 255, 0.5);
+}
+.cta-row__icon {
+  display: inline-grid; place-content: center; width: 76px; height: 76px; flex-shrink: 0;
+  border-radius: 20px; color: var(--primary-light);
+  border: 1px solid rgba(186, 99, 255, 0.45); background: rgba(186, 99, 255, 0.14);
+}
+.cta-row h2 { font-size: clamp(1.4rem, 2.6vw, 2rem); margin-bottom: 8px; }
+.cta-row p { color: var(--text-muted); font-size: 0.97rem; max-width: 60ch; }
+.cta-row__btn { white-space: normal; text-align: left; max-width: 280px; }
 
 /* ============================================================= */
 /* NASCIMENTO TEAM PLUS                                          */
@@ -887,8 +955,14 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
 @media (max-width: 767px) {
   /* PLUS: um benefício por linha */
   .plus-grid { grid-template-columns: 1fr; }
-  /* Pagamento e parcelamento empilham */
-  .pay-grid { grid-template-columns: 1fr; }
+  /* /planos: faixas e CTA empilham no celular */
+  .plus-bar { grid-template-columns: 1fr; gap: 16px; }
+  .plus-bar__text { padding-left: 0; border-left: none; padding-top: 14px; border-top: 1px solid rgba(186, 99, 255, 0.3); }
+  .pay-bar { grid-template-columns: 1fr; gap: 18px; }
+  .pay-bar__item + .pay-bar__item { padding-left: 0; border-left: none; padding-top: 18px; border-top: 1px solid var(--border-strong); }
+  .cta-row { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+  .cta-row__btn { max-width: 100%; width: 100%; text-align: center; justify-content: center; }
+  .cta-row p { margin-inline: auto; }
   /* O selo do semestral cabe melhor em duas linhas */
   .plan__equiv--best b { display: block; }
   .plan__equiv--best b::before { content: none; }
@@ -913,7 +987,7 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
   .carousel__nav { display: none; }
   .plan-switch { width: 100%; }
   .plan-switch__btn { flex: 1; padding: 11px 10px; font-size: 0.85rem; }
-  .plan-switch__btn span { display: none; }
+  .plan-switch__btn span { display: block; font-size: 0.66rem; }
   body { font-size: 16px; }
 
   /* Usa toda a largura do boxed de 400px */
