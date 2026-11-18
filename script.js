@@ -90,14 +90,15 @@ function textoEscassez(date = new Date()) {
       const nome = (plan.querySelector('.plan__name')?.textContent || '').trim();
       const grupo = plan.closest('[data-plan-group]')?.dataset.planGroup;
       const tipo = grupo === 'completo' ? 'Dieta + Treino (completo)' : 'Dieta ou Treino';
-      const { planTotal, planMonth, planDuration } = plan.dataset;
+      const { planCash, planInstallment, planDuration } = plan.dataset;
 
       let detalhe = '';
-      if (planTotal) {
-        detalhe = `, ${planTotal}`;
-        if (planDuration) detalhe += ` (${planDuration}`;
-        if (planMonth) detalhe += `${planDuration ? ', ' : ' ('}equivalente a ${planMonth}/mês`;
-        if (planDuration || planMonth) detalhe += ')';
+      if (planInstallment || planCash) {
+        const partes = [];
+        if (planDuration) partes.push(planDuration);
+        if (planInstallment) partes.push(planInstallment);
+        if (planCash) partes.push(`${planCash} à vista`);
+        detalhe = `, ${partes.join(', ')}`;
       }
 
       msg = `Olá, Henrique! Vim pelo seu site e tenho interesse no Plano ${nome} (${tipo})${detalhe}. Pode me passar mais detalhes?`;
