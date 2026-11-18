@@ -545,11 +545,11 @@ p, li, figcaption, .hero__subtitle, .section-head__note { text-wrap: pretty; }
 .plan__parcelas { font-size: 1.35rem; font-weight: 700; color: var(--text); margin-right: 4px; }
 .plan__value { font-size: 2.6rem; font-weight: 700; line-height: 1; }
 .plan__period { font-size: 0.95rem; color: var(--text-dim); }
-.plan__cash { margin-top: 8px; color: var(--text-muted); font-size: 0.92rem; }
+.plan__cash { margin-top: 6px; color: var(--text-muted); font-size: 0.92rem; }
 
 /* Na /planos o número grande é o valor TOTAL do plano. A duração e o
    equivalente mensal vêm logo abaixo, para a comparação ficar direta. */
-.plan__term { margin-top: 6px; color: var(--text-muted); font-size: 0.9rem; }
+.plan__term { margin-top: 6px; color: var(--text-dim); font-size: 0.88rem; }
 /* Botão do card com o ícone do WhatsApp */
 .btn--wa { gap: 9px; }
 .btn--wa svg { flex-shrink: 0; }
